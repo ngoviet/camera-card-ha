@@ -79,10 +79,18 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
   <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 24px;">
 </a>
 
-**Note**: If you get "Repository not found" error, make sure:
-- Repository is public on GitHub
-- You have at least one release/tag (v0.1.0 or later)
-- You're using the correct repository name: `ngoviet/camera-card`
+**Troubleshooting**: If you get "Repository not found" error:
+
+1. **Verify repository is public**: Make sure the repository `ngoviet/camera-card` is public on GitHub
+2. **Check repository name**: Use exactly `ngoviet/camera-card` (not `ngoviet/advanced-camera-card`)
+3. **Create a release**: 
+   - Go to GitHub repository → **Releases** → **Create a new release**
+   - Tag: `v0.1.0` (or later)
+   - Title: `v0.1.0 - Initial Optimized Release`
+   - Upload `dist/advanced-camera-card.js` and other JS files from `dist/` folder
+   - Or use GitHub Actions: Go to **Actions** → **Manual Release** → **Run workflow**
+4. **Clear HACS cache**: In HACS settings, click **Clear HACS cache** and try again
+5. **Manual add**: If still not working, manually add as custom repository in HACS settings
 
 ### Manual Installation
 
