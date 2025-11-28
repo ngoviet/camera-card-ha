@@ -231,6 +231,10 @@ export class AdvancedCameraCardTimelineCore extends LitElement {
     if (changedProps.has('hass')) {
       this._controller.setHass(this.hass ?? null);
     }
+  }
+
+  protected async updated(changedProperties: PropertyValues): Promise<void> {
+    super.updated(changedProperties);
 
     if (
       [
@@ -241,9 +245,9 @@ export class AdvancedCameraCardTimelineCore extends LitElement {
         'thumbnailConfig',
         'keys',
         'conditionStateManager',
-      ].some((prop) => changedProps.has(prop))
+      ].some((prop) => changedProperties.has(prop))
     ) {
-      this._controller.setOptions({
+      await this._controller.setOptions({
         cameraManager: this.cameraManager,
         foldersManager: this.foldersManager,
         viewItemManager: this.viewItemManager,
@@ -254,11 +258,8 @@ export class AdvancedCameraCardTimelineCore extends LitElement {
         keys: this.keys,
       });
     }
-  }
 
-  protected updated(changedProperties: PropertyValues): void {
-    super.updated(changedProperties);
-    if (this._controller.setTimelineElement(this._refTimeline.value)) {
+    if (await this._controller.setTimelineElement(this._refTimeline.value)) {
       // If the timeline was just created, give it one frame to draw itself.
       // Failure to do so may result in subsequent calls to
       // `this._timeline.setwindow()` being entirely ignored. Example case:

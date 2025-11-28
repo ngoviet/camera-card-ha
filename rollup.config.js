@@ -55,7 +55,7 @@ const plugins = [
     inlineSources: dev,
     exclude: ['dist/**', 'tests/**/*.test.ts'],
   }),
-  json({ exclude: 'package.json' }),
+  json({ exclude: ['package.json', 'node_modules/**/package.json'] }),
   replace({
     preventAssignment: true,
     values: {

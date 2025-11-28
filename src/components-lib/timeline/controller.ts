@@ -2,9 +2,8 @@ import { add, differenceInSeconds, sub } from 'date-fns';
 import { LitElement } from 'lit';
 import { isEqual, throttle } from 'lodash-es';
 import { ViewContext } from 'view';
-import {
+import type {
   IdType,
-  Timeline,
   TimelineEventPropertiesResult,
   TimelineFormatOption,
   TimelineItem,
@@ -12,6 +11,7 @@ import {
   TimelineOptionsCluster,
   TimelineWindow,
 } from 'vis-timeline';
+import { loadTimelineModules } from './lazy-loader';
 import { CameraManager } from '../../camera-manager/manager';
 import { rangesOverlap } from '../../camera-manager/range';
 import { MediaQuery } from '../../camera-manager/types';
@@ -92,6 +92,7 @@ export class TimelineController {
 
   private _source: TimelineDataSource | null = null;
   private _timeline: ExtendedTimeline | null = null;
+  private _timelineModule: typeof import('vis-timeline') | null = null;
 
   private _hass: HomeAssistant | null = null;
   private _cameraManager: CameraManager | null = null;
@@ -136,7 +137,7 @@ export class TimelineController {
     this._pointerHeld = null;
   }
 
-  public setOptions(options: TimelineControllerOptions): void {
+  public async setOptions(options: TimelineControllerOptions): Promise<void> {
     this.destroyTimeline();
 
     if (
@@ -154,6 +155,7 @@ export class TimelineController {
         options.timelineConfig.events_media_type,
         options.timelineConfig.show_recordings,
       );
+      await this._source.initialize();
     } else {
       this._source = null;
     }
@@ -243,13 +245,18 @@ export class TimelineController {
     return this._mini;
   }
 
-  public setTimelineElement(element?: HTMLElement): boolean {
+  public async setTimelineElement(element?: HTMLElement): Promise<boolean> {
     if (
       !this._source ||
       !this._timelineConfig ||
       (this._timeline && this._timelineElement === (element ?? null))
     ) {
       return false;
+    }
+
+    // Ensure source is initialized
+    if (!this._source.dataset) {
+      await this._source.initialize();
     }
 
     this.destroyTimeline();
@@ -264,19 +271,27 @@ export class TimelineController {
       return false;
     }
 
+    // Lazy load vis-timeline module
+    if (!this._timelineModule) {
+      const { timeline } = await loadTimelineModules();
+      this._timelineModule = timeline;
+    }
+
+    const { Timeline } = this._timelineModule;
+
     if (this._shouldShowGroups()) {
       this._timeline = new Timeline(
         this._timelineElement,
         this._source.dataset,
         options,
-      );
+      ) as ExtendedTimeline;
     } else {
       this._timeline = new Timeline(
         this._timelineElement,
         this._source.dataset,
         this._source.groups,
         options,
-      );
+      ) as ExtendedTimeline;
     }
 
     this._timeline.on('rangechanged', this._timelineRangeChangedHandler.bind(this));

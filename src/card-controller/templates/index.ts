@@ -1,4 +1,4 @@
-import { HASS, renderTemplate } from 'ha-nunjucks/dist';
+import { renderTemplate } from 'ha-nunjucks/dist';
 import { ConditionState, ConditionsTriggerData } from '../../conditions/types';
 import { HomeAssistant } from '../../ha/types';
 
@@ -71,9 +71,7 @@ export class TemplateRenderer {
   ): unknown {
     if (typeof data === 'string') {
       return renderTemplate(
-        // ha-nunjucks has a more complete model of the Home Assistant object, but
-        // does not export it as a type.
-        hass as unknown as typeof HASS,
+        hass,
         data,
         templateContext,
       );

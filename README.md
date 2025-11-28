@@ -2,11 +2,18 @@
 <!-- markdownlint-disable fenced-code-language -->
 <!-- markdownlint-disable no-inline-html -->
 
-[![GitHub Release](https://img.shields.io/github/release/dermotduffy/advanced-camera-card.svg?style=flat-square)](https://github.com/dermotduffy/advanced-camera-card/releases)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/dermotduffy/advanced-camera-card/build.yml?style=flat-square)](https://github.com/dermotduffy/advanced-camera-card/actions/workflows/build.yml)
-[![License](https://img.shields.io/github/license/dermotduffy/advanced-camera-card.svg?style=flat-square)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/ngoviet/camera-card.svg?style=flat-square)](https://github.com/ngoviet/camera-card/releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ngoviet/camera-card/build.yml?style=flat-square)](https://github.com/ngoviet/camera-card/actions/workflows/build.yml)
+[![License](https://img.shields.io/github/license/ngoviet/camera-card.svg?style=flat-square)](LICENSE)
 [![HACS](https://img.shields.io/badge/HACS-default-orange.svg?style=flat-square)](https://hacs.xyz)
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=flat-square)](https://github.com/sponsors/dermotduffy)
+
+<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card&category=frontend" target="_blank">
+  <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 24px;">
+</a>
+
+<a href="https://buymeacoffee.com/ngoviet" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 217px !important;" >
+</a>
 
 <img src="https://raw.githubusercontent.com/dermotduffy/advanced-camera-card/main/docs/images/advanced-camera-card.png" alt="Advanced Camera Card" width="500px">
 
@@ -14,7 +21,7 @@
 
 Formerly known as: `Frigate Card`
 
-A comprehensive camera card for Home Assistant.
+A comprehensive camera card for Home Assistant - Optimized for performance with lazy loading and native JavaScript helpers.
 
 - Live viewing of multiple cameras.
 - Clips and snapshot browsing via mini-gallery.

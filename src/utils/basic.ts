@@ -5,7 +5,8 @@ import {
   format,
 } from 'date-fns';
 import { StyleInfo } from 'lit/directives/style-map';
-import { isEqualWith, mergeWith, round, uniq } from 'lodash-es';
+import { isEqualWith, mergeWith } from 'lodash-es';
+import { round, uniq } from './native-helpers';
 import { AdvancedCameraCardError } from '../types';
 
 export type ModifyInterface<T, R> = Omit<T, keyof R> & R;

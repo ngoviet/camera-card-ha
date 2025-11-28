@@ -1,10 +1,10 @@
 import EmblaCarousel, { EmblaCarouselType } from 'embla-carousel';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { CreatePluginType, LoosePluginType } from 'embla-carousel/components/Plugins';
-import { isEqual } from 'lodash-es';
 import { TransitionEffect } from '../../config/schema/common/transition-effect.js';
 import { getChildrenFromElement } from '../basic.js';
 import { fireAdvancedCameraCardEvent } from '../fire-advanced-camera-card-event';
+import { deepEqual } from '../native-helpers.js';
 import { TextDirection } from '../text-direction';
 
 export interface CarouselSelected {
@@ -113,7 +113,7 @@ export class CarouselController {
 
   protected _refreshCarouselContents = (): void => {
     const newSlides = getChildrenFromElement(this._parent);
-    const slidesChanged = !isEqual(this._carousel.slideNodes(), newSlides);
+    const slidesChanged = !deepEqual(this._carousel.slideNodes(), newSlides);
     if (slidesChanged) {
       this._carousel.destroy();
       this._carousel = this._createCarousel(newSlides);

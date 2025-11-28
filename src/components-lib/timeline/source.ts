@@ -1,6 +1,6 @@
 import { add, sub } from 'date-fns';
-import { DataSet } from 'vis-data';
-import { IdType, TimelineItem, TimelineWindow } from 'vis-timeline/esnext';
+import type { IdType, TimelineItem, TimelineWindow } from 'vis-timeline/esnext';
+import { loadTimelineModules } from './lazy-loader';
 import { EqualityCache } from '../../cache/equality-cache';
 import { CameraManager } from '../../camera-manager/manager';
 import {
@@ -67,8 +67,9 @@ export class TimelineDataSource {
   private _cameraManager: CameraManager;
   private _foldersManager: FoldersManager;
   private _conditionStateManager: ConditionStateManagerReadonlyInterface;
-  private _dataset: DataSet<AdvancedCameraCardTimelineItem> = new DataSet();
-  private _groups: DataSet<AdvancedCameraCardGroup>;
+  private _dataset: import('vis-data').DataSet<AdvancedCameraCardTimelineItem> | null = null;
+  private _groups: import('vis-data').DataSet<AdvancedCameraCardGroup> | null = null;
+  private _dataModule: typeof import('vis-data') | null = null;
 
   // The ranges in which recordings have been calculated and added for.
   // Calculating recordings is a very expensive process since it is based on
@@ -99,17 +100,36 @@ export class TimelineDataSource {
     this._conditionStateManager = conditionStateManager;
     this._keys = keys;
 
-    this._groups = this._generateGroups(keys);
-
     this._eventsMediaType = eventsMediaType;
     this._showRecordings = showRecordings;
   }
 
-  get dataset(): DataSet<AdvancedCameraCardTimelineItem> {
+  private async _ensureDataModule(): Promise<typeof import('vis-data')> {
+    if (!this._dataModule) {
+      const { data } = await loadTimelineModules();
+      this._dataModule = data;
+    }
+    return this._dataModule;
+  }
+
+  async initialize(): Promise<void> {
+    const dataModule = await this._ensureDataModule();
+    const { DataSet } = dataModule;
+    this._dataset = new DataSet<AdvancedCameraCardTimelineItem>();
+    this._groups = this._generateGroups(this._keys);
+  }
+
+  get dataset(): import('vis-data').DataSet<AdvancedCameraCardTimelineItem> {
+    if (!this._dataset) {
+      throw new Error('TimelineDataSource not initialized. Call initialize() first.');
+    }
     return this._dataset;
   }
 
-  get groups(): DataSet<AdvancedCameraCardGroup> {
+  get groups(): import('vis-data').DataSet<AdvancedCameraCardGroup> {
+    if (!this._groups) {
+      throw new Error('TimelineDataSource not initialized. Call initialize() first.');
+    }
     return this._groups;
   }
 
@@ -125,7 +145,11 @@ export class TimelineDataSource {
     return folderConfig.id;
   }
 
-  private _generateGroups(keys: TimelineKeys): DataSet<AdvancedCameraCardGroup> {
+  private _generateGroups(keys: TimelineKeys): import('vis-data').DataSet<AdvancedCameraCardGroup> {
+    if (!this._dataModule) {
+      throw new Error('TimelineDataSource not initialized. Call initialize() first.');
+    }
+    const { DataSet } = this._dataModule;
     const groups: AdvancedCameraCardGroup[] = [];
 
     /* istanbul ignore else: the else path cannot be reached -- @preserve */
