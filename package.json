@@ -14,7 +14,7 @@
   ],
   "type": "module",
   "module": "advanced-camera-card.js",
-  "repository": "github:dermotduffy/advanced-camera-card",
+  "repository": "github:ngoviet/camera-card",
   "author": "Dermot Duffy <dermot.duffy@gmail.com>",
   "license": "MIT",
   "dependencies": {
