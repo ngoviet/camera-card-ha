@@ -81,16 +81,38 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
 
 **Troubleshooting**: If you get "Repository not found" error:
 
-1. **Verify repository is public**: Make sure the repository `ngoviet/camera-card` is public on GitHub
-2. **Check repository name**: Use exactly `ngoviet/camera-card` (not `ngoviet/advanced-camera-card`)
-3. **Create a release**: 
-   - Go to GitHub repository → **Releases** → **Create a new release**
-   - Tag: `v0.1.0` (or later)
-   - Title: `v0.1.0 - Initial Optimized Release`
-   - Upload `dist/advanced-camera-card.js` and other JS files from `dist/` folder
-   - Or use GitHub Actions: Go to **Actions** → **Manual Release** → **Run workflow**
-4. **Clear HACS cache**: In HACS settings, click **Clear HACS cache** and try again
-5. **Manual add**: If still not working, manually add as custom repository in HACS settings
+### Step-by-step solution:
+
+1. **Verify repository exists and is public**:
+   - Check: https://github.com/ngoviet/camera-card
+   - Ensure repository is **Public** (not Private)
+
+2. **Wait for HACS indexing** (5-10 minutes):
+   - HACS needs time to index new repositories
+   - Try again after waiting a few minutes
+
+3. **Clear HACS cache**:
+   - In Home Assistant: **HACS** → **Settings** (⚙️ icon)
+   - Click **Clear HACS cache**
+   - Restart Home Assistant if needed
+
+4. **Manual repository add**:
+   - In HACS: **Frontend** → **Three dots (⋮)** → **Custom repositories**
+   - Click **+ ADD**
+   - **Repository**: `https://github.com/ngoviet/camera-card`
+   - **Category**: `Frontend` (Lovelace)
+   - Click **Add**
+   - Wait a moment, then go to **Frontend** and search for **Advanced Camera Card**
+
+5. **Verify release exists**:
+   - Check: https://github.com/ngoviet/camera-card/releases
+   - Ensure at least one release (v0.1.0) exists with assets
+
+6. **Check HACS logs**:
+   - In Home Assistant: **Developer Tools** → **Logs**
+   - Look for HACS-related errors
+
+**Note**: Repository name must be exactly `ngoviet/camera-card` (not `ngoviet/advanced-camera-card`)
 
 ### Manual Installation
 
