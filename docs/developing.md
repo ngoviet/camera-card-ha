@@ -1,7 +1,7 @@
 # Developing
 
 > [!NOTE]
-> Want to contribute? Development help [**welcome**](https://github.com/dermotduffy/advanced-camera-card/issues/1248)!
+> Want to contribute? Development help [**welcome**](https://github.com/ngoviet/camera-card-ha/issues)!
 
 ## Building
 
@@ -14,8 +14,8 @@ However, if you are not using Volta, you can check the `volta` key in the
 `package.json` to see which version of Node and Yarn should be used.
 
 ```sh
-$ git clone https://github.com/dermotduffy/advanced-camera-card
-$ cd advanced-camera-card
+$ git clone https://github.com/ngoviet/camera-card-ha
+$ cd camera-card-ha
 $ yarn install
 $ yarn run build
 ```
@@ -39,7 +39,7 @@ Releases follow [Semantic Versioning](https://semver.org/) with the following de
 ### Manual Releases
 
 1. Merge a PR that contains only a `package.json` version number bump.
-1. Go to the [releases page](https://github.com/dermotduffy/advanced-camera-card/releases).
+1. Go to the [releases page](https://github.com/ngoviet/camera-card-ha/releases).
 1. A release draft will automatically have been created, click 'Edit'.
 1. Use the same version number for the release title and tag.
 1. Choose 'This is a pre-release' for a beta version.
@@ -52,7 +52,7 @@ To add translations, you can manually edit the JSON translation files in
 
 ## Using a dev container
 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/dermotduffy/advanced-camera-card)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/ngoviet/camera-card-ha)
 
 You can use the [VS Code Dev Containers](https://code.visualstudio.com/docs/remote/containers) extension to
 speed up the development environment creation. Simply:

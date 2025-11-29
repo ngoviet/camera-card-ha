@@ -44,7 +44,7 @@ fixes should be provided, or new features developed, is misunderstanding the
 fundamental dynamics of open source. I am sorry you feel this way, but open
 source software (including this card) is typically provided "as-is". Take it or
 leave it. If you want things to go faster / differently, [please
-contribute](https://github.com/dermotduffy/advanced-camera-card/issues/1248). If
+contribute](https://github.com/ngoviet/camera-card-ha/issues). If
 you don't want to contribute to the shared codebase, fork it and make your own.
 Or pay for a (different) Enterprise grade solution to your problem. This is
 certainly not that -- a card, developed in hobbiest-level time, with

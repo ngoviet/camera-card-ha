@@ -14,8 +14,8 @@
   ],
   "type": "module",
   "module": "advanced-camera-card.js",
-  "repository": "github:ngoviet/camera-card",
-  "author": "Dermot Duffy <dermot.duffy@gmail.com>",
+  "repository": "github:ngoviet/camera-card-ha",
+  "author": "ngoviet <ngoviet@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
     "@cycjimmy/jsmpeg-player": "^6.0.5",
@@ -164,9 +164,9 @@
             "ci"
           ],
           "assignees": [
-            "dermotduffy"
+            "ngoviet"
           ],
-          "successComment": ":tada: This issue has been resolved in version ${nextRelease.version} :tada:\n\nSee: [GitHub release](https://github.com/dermotduffy/advanced-camera-card/releases/tag/${nextRelease.gitTag})",
+          "successComment": ":tada: This issue has been resolved in version ${nextRelease.version} :tada:\n\nSee: [GitHub release](https://github.com/ngoviet/camera-card-ha/releases/tag/${nextRelease.gitTag})",
           "releaseNameTemplate": "v${nextRelease.version}"
         }
       ]
@@ -179,7 +179,7 @@
     "docs-check-links": "find ./docs -name '*.md' -print0 | xargs -0 -n1 markdown-link-check -c ./markdown-link-check.json",
     "docs-update-images": "./scripts/docs-update-images.sh",
     "docs-update-dependencies": "./scripts/docs-update-dependencies.sh",
-    "lint": "eslint 'src/**/*.ts'",
+    "lint": "eslint src/**/*.ts",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "rollup": "rollup -c",

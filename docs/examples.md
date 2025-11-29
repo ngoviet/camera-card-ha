@@ -611,7 +611,7 @@ elements:
     icon: mdi:book
     tap_action:
       action: url
-      url_path: https://github.com/dermotduffy/advanced-camera-card/releases
+      url_path: https://github.com/ngoviet/camera-card-ha/releases
 ```
 
 ## Menu state icons

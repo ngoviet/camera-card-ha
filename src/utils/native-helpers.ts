@@ -148,3 +148,21 @@ export function uniqWith<T>(array: T[], comparator: (a: T, b: T) => boolean): T[
   return result;
 }
 
+/**
+ * Get unique array items from a sorted array by key - alternative to lodash sortedUniqBy
+ * More efficient than uniqBy for already-sorted arrays as it only checks adjacent items.
+ */
+export function sortedUniqBy<T>(array: T[], iteratee: (item: T) => unknown): T[] {
+  if (array.length === 0) return [];
+  const result: T[] = [array[0]];
+  let lastKey = iteratee(array[0]);
+  for (let i = 1; i < array.length; i++) {
+    const key = iteratee(array[i]);
+    if (key !== lastKey) {
+      result.push(array[i]);
+      lastKey = key;
+    }
+  }
+  return result;
+}
+

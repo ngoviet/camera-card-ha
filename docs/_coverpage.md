@@ -6,5 +6,5 @@
 
 <small>FKA: Frigate Card</small>
 
-[GitHub](https://github.com/dermotduffy/advanced-camera-card/)
+[GitHub](https://github.com/ngoviet/camera-card-ha/)
 [Documentation](README.md)

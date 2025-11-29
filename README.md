@@ -2,12 +2,12 @@
 <!-- markdownlint-disable fenced-code-language -->
 <!-- markdownlint-disable no-inline-html -->
 
-[![GitHub Release](https://img.shields.io/github/release/ngoviet/camera-card.svg?style=flat-square)](https://github.com/ngoviet/camera-card/releases)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/ngoviet/camera-card/build.yml?style=flat-square)](https://github.com/ngoviet/camera-card/actions/workflows/build.yml)
-[![License](https://img.shields.io/github/license/ngoviet/camera-card.svg?style=flat-square)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/ngoviet/camera-card-ha.svg?style=flat-square)](https://github.com/ngoviet/camera-card-ha/releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ngoviet/camera-card-ha/build.yml?style=flat-square)](https://github.com/ngoviet/camera-card-ha/actions/workflows/build.yml)
+[![License](https://img.shields.io/github/license/ngoviet/camera-card-ha.svg?style=flat-square)](LICENSE)
 [![HACS](https://img.shields.io/badge/HACS-default-orange.svg?style=flat-square)](https://hacs.xyz)
 
-<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card&category=frontend" target="_blank">
+<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card-ha&category=frontend" target="_blank">
   <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 24px;">
 </a>
 
@@ -15,7 +15,7 @@
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 217px !important;" >
 </a>
 
-<img src="https://raw.githubusercontent.com/dermotduffy/advanced-camera-card/main/docs/images/advanced-camera-card.png" alt="Advanced Camera Card" width="500px">
+<img src="https://raw.githubusercontent.com/ngoviet/camera-card-ha/main/docs/images/advanced-camera-card.png" alt="Advanced Camera Card" width="500px">
 
 # Advanced Camera Card
 
@@ -67,7 +67,7 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
 1. Open HACS in Home Assistant
 2. Go to **Frontend** > **Three dots menu (⋮)** > **Custom repositories**
 3. Add repository with:
-   - **Repository**: `ngoviet/camera-card`
+   - **Repository**: `ngoviet/camera-card-ha`
    - **Category**: `Frontend` (Lovelace)
 4. Click **Add**
 5. Go back to **Frontend** and search for **Advanced Camera Card**
@@ -75,7 +75,7 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
 
 **Option 2: Use HACS Button**
 
-<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card&category=frontend" target="_blank">
+<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card-ha&category=frontend" target="_blank">
   <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 24px;">
 </a>
 
@@ -99,20 +99,20 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
 4. **Manual repository add**:
    - In HACS: **Frontend** → **Three dots (⋮)** → **Custom repositories**
    - Click **+ ADD**
-   - **Repository**: `https://github.com/ngoviet/camera-card`
+   - **Repository**: `https://github.com/ngoviet/camera-card-ha`
    - **Category**: `Frontend` (Lovelace)
    - Click **Add**
    - Wait a moment, then go to **Frontend** and search for **Advanced Camera Card**
 
 5. **Verify release exists**:
-   - Check: https://github.com/ngoviet/camera-card/releases
+   - Check: https://github.com/ngoviet/camera-card-ha/releases
    - Ensure at least one release (v0.1.0) exists with assets
 
 6. **Check HACS logs**:
    - In Home Assistant: **Developer Tools** → **Logs**
    - Look for HACS-related errors
 
-**Note**: Repository name must be exactly `ngoviet/camera-card` (not `ngoviet/advanced-camera-card`)
+**Note**: Repository name must be exactly `ngoviet/camera-card-ha`
 
 ### Manual Installation
 

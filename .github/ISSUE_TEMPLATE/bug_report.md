@@ -14,7 +14,7 @@ assignees: ''
 
 **Checklist:**
 
-- Please try updating to the [latest available version](https://github.com/dermotduffy/advanced-camera-card/releases).
+- Please try updating to the [latest available version](https://github.com/ngoviet/camera-card-ha/releases).
 - Please try clearing your browser cache.
 
 **[REQUIRED] Card diagnostic information:**

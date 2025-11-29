@@ -54,7 +54,7 @@ Debugging broken streams:
    ensure [you have configured Frigate
    accordingly](https://docs.frigate.video/configuration/live/#webrtc-extra-configuration).
 1. Search for your symptoms on the [card issues
-   page](https://github.com/dermotduffy/advanced-camera-card/issues) and see if
+   page](https://github.com/ngoviet/camera-card-ha/issues) and see if
    you find any prior relevant discussions.
 
 If you're happy with just using an image stream but want the small circle to go
@@ -99,7 +99,7 @@ live:
       disableGl: true
 ```
 
-[This bug](https://github.com/dermotduffy/advanced-camera-card/issues/191) has some
+[This bug](https://github.com/ngoviet/camera-card-ha/issues/191) has some
 more discussion on this topic. New ideas to address this underlying limitation
 most welcome!
 
@@ -293,8 +293,8 @@ recommending update and some users find this annoying.
 
 The topic of intentionally doing fewer releases has been discussed fairly
 extensively
-([#1781](https://github.com/dermotduffy/advanced-camera-card/issues/1781),
-[#2072](https://github.com/dermotduffy/advanced-camera-card/issues/2072)) but it
+([#1781](https://github.com/ngoviet/camera-card-ha/issues/1781),
+[#2072](https://github.com/ngoviet/camera-card-ha/issues/2072)) but it
 always comes down to some users (and this developer!) like it instant / often,
 others like it slower / rarer.
 

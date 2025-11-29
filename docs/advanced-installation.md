@@ -34,7 +34,7 @@ lovelace:
 
 ### Manual installation
 
-- Download the `advanced-camera-card.zip` attachment of the desired [release](https://github.com/dermotduffy/advanced-camera-card/releases) to a location accessible by Home Assistant. Note that the release will have a series of `.js` files (for HACS users) **and** a `advanced-camera-card.zip` for the convenience of manual installers.
+- Download the `advanced-camera-card.zip` attachment of the desired [release](https://github.com/ngoviet/camera-card-ha/releases) to a location accessible by Home Assistant. Note that the release will have a series of `.js` files (for HACS users) **and** a `advanced-camera-card.zip` for the convenience of manual installers.
 - Unzip the file and move the contents of the `dist/` folder to any subfolder name you'd like, e.g. `advanced-camera-card` is used in the below example.
 - Add the location as a Lovelace resource via the UI, or via [YAML configuration](https://www.home-assistant.io/lovelace/dashboards/#resources) such as:
 
