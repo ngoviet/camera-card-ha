@@ -7,15 +7,23 @@
 [![License](https://img.shields.io/github/license/ngoviet/camera-card-ha.svg?style=flat-square)](LICENSE)
 [![HACS](https://img.shields.io/badge/HACS-default-orange.svg?style=flat-square)](https://hacs.xyz)
 
-<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card-ha&category=frontend" target="_blank">
-  <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 24px;">
+<div align="center" style="margin: 20px 0;">
+
+<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card-ha&category=frontend" target="_blank" style="display: inline-block; margin-right: 10px;">
+  <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 50px; width: auto;">
 </a>
 
-<a href="https://buymeacoffee.com/ngoviet" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 217px !important;" >
+<a href="https://buymeacoffee.com/ngoviet" target="_blank" style="display: inline-block;">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px; width: auto;">
 </a>
+
+</div>
+
+<div align="center" style="margin: 30px 0;">
 
 <img src="https://raw.githubusercontent.com/ngoviet/camera-card-ha/main/docs/images/advanced-camera-card.png" alt="Advanced Camera Card" width="500px">
+
+</div>
 
 # Advanced Camera Card
 
@@ -75,16 +83,20 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
 
 **Option 2: Use HACS Button**
 
+<div align="center" style="margin: 15px 0;">
+
 <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=camera-card-ha&category=frontend" target="_blank">
-  <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 24px;">
+  <img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" style="height: 50px; width: auto;">
 </a>
+
+</div>
 
 **Troubleshooting**: If you get "Repository not found" error:
 
 ### Step-by-step solution:
 
 1. **Verify repository exists and is public**:
-   - Check: https://github.com/ngoviet/camera-card
+   - Check: https://github.com/ngoviet/camera-card-ha
    - Ensure repository is **Public** (not Private)
 
 2. **Wait for HACS indexing** (5-10 minutes):
@@ -182,9 +194,13 @@ profiles:
 
 If you find this project useful, please consider supporting development:
 
+<div align="center" style="margin: 20px 0;">
+
 <a href="https://buymeacoffee.com/ngoviet" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 217px !important;" >
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px; width: auto;">
 </a>
+
+</div>
 
 ## License
 
