@@ -335,13 +335,13 @@ export class TimelineController {
           this._timeline.getSelection().some((id) => {
             const item = this._source?.dataset?.get(id);
             return (
-              panMode !== 'seek-in-camera' ||
-                item?.media?.getCameraID() === view?.camera,
+              (panMode !== 'seek-in-camera' ||
+                item?.media?.getCameraID() === view?.camera) &&
               item &&
-                item.start &&
-                item.end &&
-                targetTime.getTime() >= item.start &&
-                targetTime.getTime() <= item.end
+              item.start &&
+              item.end &&
+              targetTime.getTime() >= item.start &&
+              targetTime.getTime() <= item.end
             );
           })));
 

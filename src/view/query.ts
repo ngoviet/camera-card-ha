@@ -77,7 +77,7 @@ class MediaQueryBase<T extends MediaQuery> extends ViewQuery<T[]> {
         // times taking into account whether source time is larger than target
         // time.
         if (
-          isEqual(
+          deepEqual(
             {
               ...thisQuery,
               end: null,

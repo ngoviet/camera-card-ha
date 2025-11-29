@@ -87,6 +87,40 @@ const outputEntryTemplate = {
   },
   format: 'es',
   sourcemap: dev,
+  manualChunks: (id) => {
+    // Group large dependencies into separate chunks for better code splitting
+    // vis-timeline and vis-data are already lazy loaded, but we still want to chunk them
+    if (id.includes('vis-timeline') || id.includes('vis-data')) {
+      return 'vis-timeline';
+    }
+    // jsmpeg-player for video playback
+    if (id.includes('jsmpeg-player')) {
+      return 'jsmpeg';
+    }
+    // masonry-layout for gallery grid layouts
+    if (id.includes('masonry-layout')) {
+      return 'masonry';
+    }
+    // embla-carousel for carousel functionality
+    if (id.includes('embla-carousel')) {
+      return 'embla';
+    }
+    // Group other large node_modules dependencies
+    if (id.includes('node_modules')) {
+      // Keep lodash-es in a separate chunk (though we've replaced many functions)
+      if (id.includes('lodash-es')) {
+        return 'lodash';
+      }
+      // Group other large dependencies
+      if (
+        id.includes('home-assistant-js-websocket') ||
+        id.includes('ha-nunjucks') ||
+        id.includes('date-fns')
+      ) {
+        return 'ha-deps';
+      }
+    }
+  },
 };
 
 const CIRCULAR_DEPENDENCY_IGNORE_REGEXP = /(ha-nunjucks|ts-py-datetime)/;
