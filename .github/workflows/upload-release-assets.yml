@@ -27,8 +27,11 @@ jobs:
       - name: Setup Node and Yarn
         uses: volta-cli/action@v4
 
+      - name: Remove yarn.lock to allow fresh install
+        run: rm -f yarn.lock
+
       - name: Install dependencies
-        run: yarn install --mode=update-lockfile
+        run: yarn install
 
       - name: Build the files
         run: yarn run build
