@@ -27,8 +27,11 @@ jobs:
       - name: Setup Node and Yarn
         uses: volta-cli/action@v4
 
+      - name: Update yarn.lock if needed
+        run: yarn install --mode=update-lockfile || true
+
       - name: Install dependencies
-        run: yarn install --mode=skip-build
+        run: yarn install
 
       - name: Build the files
         run: yarn run build
