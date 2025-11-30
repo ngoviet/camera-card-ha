@@ -93,6 +93,7 @@ export function localize(string: string, search = '', replace = ''): string {
   if (!translated || typeof translated !== 'string') {
     try {
       translated = string.split('.').reduce((o, i) => o?.[i], languages[DEFAULT_LANG]);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (_e) {
       translated = string;
     }
