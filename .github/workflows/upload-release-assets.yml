@@ -30,7 +30,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable || {
-            echo "Lockfile issue detected, trying without --immutable..."
+            echo "Lockfile issue detected, updating lockfile..."
+            yarn install --mode=update-lockfile
+            echo "Installing with updated lockfile..."
             yarn install
           }
 
