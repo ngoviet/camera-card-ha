@@ -50,11 +50,16 @@ const plugins = [
     tsconfig: 'tsconfig.json',
     resolveJsonModule: true,
     filterRoot: process.cwd(),
+    rootDir: process.cwd(),
+    compilerOptions: {
+      moduleResolution: 'node',
+    },
   }),
   nodeResolve({
     browser: true,
     preferBuiltins: false,
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    dedupe: [],
   }),
   commonjs({
     include: 'node_modules/**',
