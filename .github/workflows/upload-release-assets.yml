@@ -32,7 +32,9 @@ jobs:
           set +e
           yarn install --immutable
           if [ $? -ne 0 ]; then
-            echo "Lockfile issue detected, updating lockfile..."
+            echo "Lockfile issue detected, removing and recreating lockfile..."
+            rm -f yarn.lock
+            touch yarn.lock
             yarn install --mode=update-lockfile || true
             echo "Installing with updated lockfile..."
             yarn install
