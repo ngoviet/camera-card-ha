@@ -56,7 +56,7 @@ customElements.whenDefined('ha-web-rtc-player').then(() => {
       // this workaround), watch the number of open connections on the go2rtc
       // UI, then edit and rapidly save a dashboard with this card -- the number
       // of open connections will not return to 1.
-      // See: https://github.com/dermotduffy/advanced-camera-card/issues/1992
+      // See: https://github.com/dermotduffy/camera-card-ha/issues/1992
       await super._startWebRtc();
 
       // Workaround: After attempting to start a WebRTC session, check if the
@@ -75,7 +75,7 @@ customElements.whenDefined('ha-web-rtc-player').then(() => {
       // the player is muted. It does not currently respond to unmuting to
       // re-add the audio track, or perhaps assumes that situation would not
       // arise. As such, this code is kept commented out. See:
-      // https://github.com/dermotduffy/advanced-camera-card/issues/2235
+      // https://github.com/dermotduffy/camera-card-ha/issues/2235
       // if (event.track.kind === 'audio' && this.muted) {
       //   return;
       // }

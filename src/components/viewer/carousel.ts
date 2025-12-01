@@ -340,14 +340,14 @@ export class AdvancedCameraCardViewerCarousel extends LitElement {
         .plugins=${guard([this.viewerConfig, this._media], this._getPlugins.bind(this))}
         .selected=${this._selected}
         transitionEffect=${this._getTransitionEffect()}
-        @advanced-camera-card:carousel:select=${(ev: CustomEvent<CarouselSelected>) => {
+        @camera-card-ha:carousel:select=${(ev: CustomEvent<CarouselSelected>) => {
           this._setViewSelectedIndex(ev.detail.index);
         }}
-        @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
+        @camera-card-ha:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
           this._loadedMediaPlayerController = ev.detail.mediaPlayerController ?? null;
           this._seekHandler();
         }}
-        @advanced-camera-card:media:unloaded=${() => {
+        @camera-card-ha:media:unloaded=${() => {
           this._loadedMediaPlayerController = null;
         }}
       >
@@ -382,7 +382,7 @@ export class AdvancedCameraCardViewerCarousel extends LitElement {
 
     // If the view has changed, or if the media actions controller has just been
     // initialized, then call the necessary media action.
-    // See: https://github.com/dermotduffy/advanced-camera-card/issues/1626
+    // See: https://github.com/dermotduffy/camera-card-ha/issues/1626
     if (rootChanged || changedProperties.has('viewManagerEpoch')) {
       this._setMediaTarget();
     }

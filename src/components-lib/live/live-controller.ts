@@ -57,7 +57,7 @@ export class LiveController implements ReactiveController {
     this._intersectionObserver.observe(this._host);
 
     this._host.addEventListener(
-      'advanced-camera-card:media:loaded',
+      'camera-card-ha:media:loaded',
       this._handleMediaLoaded,
     );
   }
@@ -66,7 +66,7 @@ export class LiveController implements ReactiveController {
     this._intersectionObserver.disconnect();
 
     this._host.removeEventListener(
-      'advanced-camera-card:media:loaded',
+      'camera-card-ha:media:loaded',
       this._handleMediaLoaded,
     );
   }

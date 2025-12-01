@@ -4,7 +4,7 @@ import {
   MediaPlayerController,
   MediaTechnology,
 } from '../types.js';
-import { fireAdvancedCameraCardEvent } from './fire-advanced-camera-card-event.js';
+import { fireAdvancedCameraCardEvent } from './fire-camera-card-ha-event.js';
 
 const MEDIA_INFO_HEIGHT_CUTOFF = 50;
 const MEDIA_INFO_WIDTH_CUTOFF = MEDIA_INFO_HEIGHT_CUTOFF;

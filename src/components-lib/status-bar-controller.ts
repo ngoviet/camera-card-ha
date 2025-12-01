@@ -48,7 +48,7 @@ export class StatusBarController {
   public setConfig(config: StatusBarConfig): void {
     this._config = config;
     this._host.style.setProperty(
-      '--advanced-camera-card-status-bar-height',
+      '--camera-card-ha-status-bar-height',
       `${config.height}px`,
     );
 

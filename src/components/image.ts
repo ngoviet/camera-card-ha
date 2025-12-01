@@ -68,7 +68,7 @@ export class AdvancedCameraCardImage extends LitElement implements MediaPlayer {
                 : undefined,
           )}
           .settings=${view?.context?.zoom?.[zoomTarget]?.requested}
-          @advanced-camera-card:zoom:change=${(ev: CustomEvent<ZoomSettingsObserved>) =>
+          @camera-card-ha:zoom:change=${(ev: CustomEvent<ZoomSettingsObserved>) =>
             handleZoomSettingsObservedEvent(
               ev,
               this.viewManagerEpoch?.manager,

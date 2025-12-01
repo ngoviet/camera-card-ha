@@ -4,7 +4,7 @@ import { createRef, ref, Ref } from 'lit/directives/ref.js';
 import { localize } from '../localize/localize';
 import datePickerStyle from '../scss/date-picker.scss';
 import { stopEventFromActivatingCardWideActions } from '../utils/action';
-import { fireAdvancedCameraCardEvent } from '../utils/fire-advanced-camera-card-event';
+import { fireAdvancedCameraCardEvent } from '../utils/fire-camera-card-ha-event';
 import './icon';
 
 export interface DatePickerEvent {

@@ -112,13 +112,13 @@ export class AdvancedCameraCardMenu extends LitElement {
 
     const generateValue = (suffix: string): string => {
       return `
-        var(--advanced-camera-card-menu-override-${suffix},
-        var(--advanced-camera-card-menu-position-${position}-alignment-${alignment}-style-${style}-${suffix},
-        var(--advanced-camera-card-menu-position-${position}-alignment-${alignment}-${suffix},
-        var(--advanced-camera-card-menu-position-${position}-${suffix},
-        var(--advanced-camera-card-menu-style-${style}-${suffix},
-        var(--advanced-camera-card-menu-alignment-${alignment}-${suffix},
-        var(--advanced-camera-card-menu-${suffix})))))))`;
+        var(--camera-card-ha-menu-override-${suffix},
+        var(--camera-card-ha-menu-position-${position}-alignment-${alignment}-style-${style}-${suffix},
+        var(--camera-card-ha-menu-position-${position}-alignment-${alignment}-${suffix},
+        var(--camera-card-ha-menu-position-${position}-${suffix},
+        var(--camera-card-ha-menu-style-${style}-${suffix},
+        var(--camera-card-ha-menu-alignment-${alignment}-${suffix},
+        var(--camera-card-ha-menu-${suffix})))))))`;
     };
 
     // By definition `rule` will match the current configuration, the choice is

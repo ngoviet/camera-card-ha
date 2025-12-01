@@ -221,7 +221,7 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
           .hass=${this.hass}
           .cardWideConfig=${this.cardWideConfig}
           .zoomSettings=${view?.context?.zoom?.[cameraID]?.requested}
-          @advanced-camera-card:zoom:change=${(ev: CustomEvent<ZoomSettingsObserved>) =>
+          @camera-card-ha:zoom:change=${(ev: CustomEvent<ZoomSettingsObserved>) =>
             handleZoomSettingsObservedEvent(
               ev,
               this.viewManagerEpoch?.manager,
@@ -340,11 +340,11 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
         )}
         .selected=${this._getSelectedCameraIndex()}
         transitionEffect=${this._getTransitionEffect()}
-        @advanced-camera-card:carousel:select=${this._setViewHandler.bind(this)}
-        @advanced-camera-card:media:loaded=${() => {
+        @camera-card-ha:carousel:select=${this._setViewHandler.bind(this)}
+        @camera-card-ha:media:loaded=${() => {
           this._mediaHasLoaded = true;
         }}
-        @advanced-camera-card:media:unloaded=${() => {
+        @camera-card-ha:media:unloaded=${() => {
           this._mediaHasLoaded = false;
         }}
       >
@@ -393,7 +393,7 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
 
     // If the view has changed, or if the media actions controller has just been
     // initialized, then call the necessary media action.
-    // See: https://github.com/dermotduffy/advanced-camera-card/issues/1626
+    // See: https://github.com/dermotduffy/camera-card-ha/issues/1626
     if (rootChanged || changedProperties.has('viewManagerEpoch')) {
       this._setMediaTarget();
     }

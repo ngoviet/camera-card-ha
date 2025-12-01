@@ -145,7 +145,7 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
               .cardWideConfig=${this.cardWideConfig}
               .extendUp=${true}
               .extendDown=${true}
-              @advanced-camera-card:gallery:extend:up=${(
+              @camera-card-ha:gallery:extend:up=${(
                 ev: CustomEvent<GalleryExtendEvent>,
               ) =>
                 this._extendGallery(
@@ -155,7 +155,7 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
                   // the freshest possible data.
                   false,
                 )}
-              @advanced-camera-card:gallery:extend:down=${(
+              @camera-card-ha:gallery:extend:down=${(
                 ev: CustomEvent<GalleryExtendEvent>,
               ) => this._extendGallery(ev, 'earlier')}
             >

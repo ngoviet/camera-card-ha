@@ -21,7 +21,7 @@ export class FolderGalleryController {
 
   public setThumbnailSize(size?: number): void {
     this._host.style.setProperty(
-      '--advanced-camera-card-thumbnail-size',
+      '--camera-card-ha-thumbnail-size',
       `${size ?? THUMBNAIL_WIDTH_DEFAULT}px`,
     );
   }

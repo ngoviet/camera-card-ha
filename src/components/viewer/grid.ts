@@ -96,7 +96,7 @@ export class AdvancedCameraCardViewerGrid extends LitElement {
       <camera-card-ha-media-grid
         .selected=${view?.camera}
         .displayConfig=${this.viewerConfig?.display}
-        @advanced-camera-card:media-grid:selected=${(
+        @camera-card-ha:media-grid:selected=${(
           ev: CustomEvent<MediaGridSelected>,
         ) => this._gridSelectCamera(ev.detail.selected)}
       >

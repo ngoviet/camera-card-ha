@@ -3,7 +3,7 @@ import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { CreatePluginType, LoosePluginType } from 'embla-carousel/components/Plugins';
 import { TransitionEffect } from '../../config/schema/common/transition-effect.js';
 import { getChildrenFromElement } from '../basic.js';
-import { fireAdvancedCameraCardEvent } from '../fire-advanced-camera-card-event';
+import { fireAdvancedCameraCardEvent } from '../fire-camera-card-ha-event';
 import { deepEqual } from '../basic';
 import { TextDirection } from '../text-direction';
 

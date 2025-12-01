@@ -138,7 +138,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
         placeholder=${localize('media_filter.select_media_type')}
         .options=${this._mediaFilterController.getMediaTypeOptions()}
         .initialValue=${defaults?.mediaType}
-        @advanced-camera-card:select:change=${() => valueChange()}
+        @camera-card-ha:select:change=${() => valueChange()}
       >
       </camera-card-ha-select>
       <div class="when">
@@ -149,7 +149,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
           .options=${this._mediaFilterController.getWhenOptions()}
           .initialValue=${defaults?.when}
           clearable
-          @advanced-camera-card:select:change=${() => whenChange('selected')}
+          @camera-card-ha:select:change=${() => whenChange('selected')}
         >
         </camera-card-ha-select>
         <camera-card-ha-date-picker
@@ -159,7 +159,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
           })}"
           ${ref(this._refWhenFrom)}
           .icon=${'mdi:calendar-arrow-right'}
-          @advanced-camera-card:date-picker:change=${() => whenChange('custom')}
+          @camera-card-ha:date-picker:change=${() => whenChange('custom')}
         >
         </camera-card-ha-date-picker>
         <camera-card-ha-date-picker
@@ -169,7 +169,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
           })}"
           ${ref(this._refWhenTo)}
           .icon=${'mdi:calendar-arrow-left'}
-          @advanced-camera-card:date-picker:change=${() => whenChange('custom')}
+          @camera-card-ha:date-picker:change=${() => whenChange('custom')}
         >
         </camera-card-ha-date-picker>
       </div>
@@ -181,7 +181,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
         .initialValue=${defaults?.cameraIDs}
         clearable
         multiple
-        @advanced-camera-card:select:change=${() => valueChange()}
+        @camera-card-ha:select:change=${() => valueChange()}
       >
       </camera-card-ha-select>
       ${controls.events && whatOptions.length
@@ -193,7 +193,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
             multiple
             .options=${whatOptions}
             .initialValue=${defaults?.what}
-            @advanced-camera-card:select:change=${() => valueChange()}
+            @camera-card-ha:select:change=${() => valueChange()}
           >
           </camera-card-ha-select>`
         : ''}
@@ -206,7 +206,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
             multiple
             .options=${tagsOptions}
             .initialValue=${defaults?.tags}
-            @advanced-camera-card:select:change=${() => valueChange()}
+            @camera-card-ha:select:change=${() => valueChange()}
           >
           </camera-card-ha-select>`
         : ''}
@@ -219,7 +219,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
             multiple
             .options=${whereOptions}
             .initialValue=${defaults?.where}
-            @advanced-camera-card:select:change=${() => valueChange()}
+            @camera-card-ha:select:change=${() => valueChange()}
           >
           </camera-card-ha-select>`
         : ''}
@@ -232,7 +232,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
               .options=${this._mediaFilterController.getFavoriteOptions()}
               .initialValue=${defaults?.favorite}
               clearable
-              @advanced-camera-card:select:change=${() => valueChange()}
+              @camera-card-ha:select:change=${() => valueChange()}
             >
             </camera-card-ha-select>
           `

@@ -4,7 +4,7 @@ export class ConditionStateManagerGetEvent extends Event {
   public conditionStateManager?: ConditionStateManager;
 
   constructor(eventInitDict?: EventInit) {
-    super('advanced-camera-card:condition-state-manager:get', eventInitDict);
+    super('camera-card-ha:condition-state-manager:get', eventInitDict);
   }
 }
 

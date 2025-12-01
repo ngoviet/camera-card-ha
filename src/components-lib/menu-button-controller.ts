@@ -709,11 +709,11 @@ export class MenuButtonController {
     if (critical) {
       return {
         animation: 'pulse 3s infinite',
-        color: 'var(--advanced-camera-card-menu-button-critical-color)',
+        color: 'var(--camera-card-ha-menu-button-critical-color)',
       };
     }
     return {
-      color: 'var(--advanced-camera-card-menu-button-active-color)',
+      color: 'var(--camera-card-ha-menu-button-active-color)',
     };
   }
 

@@ -55,11 +55,11 @@ export class AdvancedCameraCardStatusBar extends LitElement {
 
     const generateValue = (suffix: string): string => {
       return `
-        var(--advanced-camera-card-status-bar-override-${suffix},
-        var(--advanced-camera-card-status-bar-position-${position}-style-${style}-${suffix},
-        var(--advanced-camera-card-status-bar-position-${position}-${suffix},
-        var(--advanced-camera-card-status-bar-style-${style}-${suffix},
-        var(--advanced-camera-card-status-bar-${suffix})))))`;
+        var(--camera-card-ha-status-bar-override-${suffix},
+        var(--camera-card-ha-status-bar-position-${position}-style-${style}-${suffix},
+        var(--camera-card-ha-status-bar-position-${position}-${suffix},
+        var(--camera-card-ha-status-bar-style-${style}-${suffix},
+        var(--camera-card-ha-status-bar-${suffix})))))`;
     };
 
     const rule = `[data-position='${position}']` + `[data-style='${style}']`;

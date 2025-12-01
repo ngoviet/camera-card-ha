@@ -81,7 +81,7 @@ customElements.whenDefined('ha-camera-stream').then(() => {
       if (stream.type === STREAM_TYPE_MJPEG) {
         return html`
           <camera-card-ha-image-player
-            @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
+            @camera-card-ha:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
               this._storeMediaLoadedInfo(STREAM_TYPE_MJPEG, ev.detail);
               ev.stopPropagation();
             }}
@@ -104,7 +104,7 @@ customElements.whenDefined('ha-camera-stream').then(() => {
           .hass=${this.hass}
           .entityid=${this.stateObj.entity_id}
           .posterUrl=${this._posterUrl}
-          @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
+          @camera-card-ha:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
             this._storeMediaLoadedInfoHandler(STREAM_TYPE_HLS, ev);
             ev.stopPropagation();
           }}
@@ -122,7 +122,7 @@ customElements.whenDefined('ha-camera-stream').then(() => {
           .hass=${this.hass}
           .entityid=${this.stateObj.entity_id}
           .posterUrl=${this._posterUrl}
-          @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
+          @camera-card-ha:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
             this._storeMediaLoadedInfoHandler(STREAM_TYPE_WEB_RTC, ev);
             ev.stopPropagation();
           }}

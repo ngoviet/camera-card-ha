@@ -21,7 +21,7 @@ export class StyleManager {
     // as dimension configuration does not apply in fullscreen or expanded mode.
     const lastKnown = this._api.getMediaLoadedInfoManager().getLastKnown();
     card.style.setProperty(
-      '--advanced-camera-card-expand-aspect-ratio',
+      '--camera-card-ha-expand-aspect-ratio',
       view?.isAnyMediaView() && lastKnown
         ? `${lastKnown.width} / ${lastKnown.height}`
         : 'unset',
@@ -31,16 +31,16 @@ export class StyleManager {
     // space.
     const isGrid = view?.isGrid();
     card.style.setProperty(
-      '--advanced-camera-card-expand-width',
+      '--camera-card-ha-expand-width',
       !isGrid && view?.isAnyMediaView()
         ? 'none'
-        : 'var(--advanced-camera-card-expand-max-width)',
+        : 'var(--camera-card-ha-expand-max-width)',
     );
     card.style.setProperty(
-      '--advanced-camera-card-expand-height',
+      '--camera-card-ha-expand-height',
       !isGrid && view?.isAnyMediaView()
         ? 'none'
-        : 'var(--advanced-camera-card-expand-max-height)',
+        : 'var(--camera-card-ha-expand-max-height)',
     );
   }
 
@@ -88,7 +88,7 @@ export class StyleManager {
     const config = this._api.getConfigManager().getConfig();
     if (config) {
       const card = this._api.getCardElementManager().getElement();
-      card.style.setProperty('--advanced-camera-card-height', config.dimensions.height);
+      card.style.setProperty('--camera-card-ha-height', config.dimensions.height);
     }
   }
 
@@ -102,7 +102,7 @@ export class StyleManager {
 
     const styles = performance?.style ?? {};
     for (const configKey of Object.keys(styles)) {
-      const CSSKey = `--advanced-camera-card-css-${configKey.replaceAll('_', '-')}`;
+      const CSSKey = `--camera-card-ha-css-${configKey.replaceAll('_', '-')}`;
       if (styles[configKey] === false) {
         element.style.setProperty(CSSKey, STYLE_DISABLE_MAP[configKey]);
       } else {

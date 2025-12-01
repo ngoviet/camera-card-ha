@@ -106,7 +106,7 @@ export class AdvancedCameraCardCarousel extends LitElement {
       // disconnect/connect callbacks, causing a carousel to potentially be
       // created after the node is disconnected. This could cause a dangling
       // carousel and hold open connections that should have been closed.
-      // See: https://github.com/dermotduffy/advanced-camera-card/issues/1992
+      // See: https://github.com/dermotduffy/camera-card-ha/issues/1992
       this.isConnected
     ) {
       this._carousel = new CarouselController(

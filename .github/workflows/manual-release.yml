@@ -26,7 +26,7 @@ jobs:
         with:
           type: zip
           path: dist
-          filename: advanced-camera-card.zip
+          filename: camera-card-ha.zip
 
       - name: Upload JS files to release
         uses: svenstaro/upload-release-action@2.9.0
@@ -43,7 +43,7 @@ jobs:
 
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: advanced-camera-card.zip
+          file: camera-card-ha.zip
           tag: ${{ github.ref }}
           overwrite: true
 

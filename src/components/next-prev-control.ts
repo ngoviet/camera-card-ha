@@ -16,7 +16,7 @@ export class AdvancedCameraCardNextPreviousControl extends LitElement {
   set controlConfig(controlConfig: NextPreviousControlConfig | undefined) {
     if (controlConfig?.size) {
       this.style.setProperty(
-        '--advanced-camera-card-next-prev-size',
+        '--camera-card-ha-next-prev-size',
         `${controlConfig.size}px`,
       );
     }

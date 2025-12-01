@@ -458,7 +458,7 @@ const callServiceToPerformActionTransform = (data: unknown): boolean => {
 
 /**
  * Transform service_data -> data
- * See: https://github.com/dermotduffy/advanced-camera-card/issues/1103
+ * See: https://github.com/dermotduffy/camera-card-ha/issues/1103
  * @param data Input data.
  * @returns `true` if the configuration was modified.
  */
@@ -775,7 +775,7 @@ const frigateCardToAdvancedCameraCardStyleTransform = (data: unknown): unknown =
 
   for (const key of Object.keys(data)) {
     if (key.match(frigateCardStyleRegexp)) {
-      const newKey = key.replace(frigateCardStyleRegexp, '--advanced-camera-card-');
+      const newKey = key.replace(frigateCardStyleRegexp, '--camera-card-ha-');
 
       newStyleOverrides[newKey] = data[key];
       delete newStyleOverrides[key];

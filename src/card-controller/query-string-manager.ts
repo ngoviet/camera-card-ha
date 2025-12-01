@@ -97,7 +97,7 @@ export class QueryStringManager {
     const params = new URLSearchParams(window.location.search);
     const actions: AdvancedCameraCardCustomActionConfig[] = [];
     const actionRE = new RegExp(
-      /^(advanced-camera-card|frigate-card)-action([.:](?<cardID>\w+))?[.:](?<action>\w+)/,
+      /^(camera-card-ha|frigate-card)-action([.:](?<cardID>\w+))?[.:](?<action>\w+)/,
     );
     for (const [key, value] of params.entries()) {
       const match = key.match(actionRE);

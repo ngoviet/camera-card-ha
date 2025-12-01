@@ -124,7 +124,7 @@ export class AdvancedCameraCardDrawer extends LitElement {
                     // Only open the drawer on mousenter when the device
                     // supports hover (otherwise iOS may end up passing on
                     // subsequent click events to a different element, see:
-                    // https://github.com/dermotduffy/advanced-camera-card/issues/801
+                    // https://github.com/dermotduffy/camera-card-ha/issues/801
                     if (this._isHoverableDevice && !this.open) {
                       this.open = true;
                     }

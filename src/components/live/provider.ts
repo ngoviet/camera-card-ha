@@ -200,7 +200,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
     const config = this.camera?.getConfig();
     const intermediateTemplate = html` <camera-card-ha-media-dimensions-container
       .dimensionsConfig=${config?.dimensions}
-      @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
+      @camera-card-ha:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
         if (ev.detail.placeholder) {
           ev.stopPropagation();
         } else {
@@ -222,9 +222,9 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
               : undefined,
           )}
           .settings=${this.zoomSettings}
-          @advanced-camera-card:zoom:zoomed=${async () =>
+          @camera-card-ha:zoom:zoomed=${async () =>
             (await this.getMediaPlayerController())?.setControls(false)}
-          @advanced-camera-card:zoom:unzoomed=${async () =>
+          @camera-card-ha:zoom:unzoomed=${async () =>
             (await this.getMediaPlayerController())?.setControls()}
         >
           ${intermediateTemplate}
@@ -309,8 +309,8 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
               // so it should not be hidden.
               hidden: false,
             })}
-            @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
-            @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
+            @camera-card-ha:live:error=${() => this._providerErrorHandler()}
+            @camera-card-ha:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
               ev.detail.placeholder = provider !== 'image';
             }}
           >
@@ -323,7 +323,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
             .hass=${this.hass}
             .cameraConfig=${cameraConfig}
             ?controls=${this.liveConfig.controls.builtin}
-            @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
+            @camera-card-ha:live:error=${() => this._providerErrorHandler()}
           >
           </camera-card-ha-live-ha>`
         : provider === 'go2rtc'
@@ -336,7 +336,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
               .microphoneState=${this.microphoneState}
               .microphoneConfig=${this.liveConfig.microphone}
               ?controls=${this.liveConfig.controls.builtin}
-              @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
+              @camera-card-ha:live:error=${() => this._providerErrorHandler()}
             >
             </camera-card-ha-live-go2rtc>`
           : provider === 'webrtc-card'
@@ -348,7 +348,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
                 .cameraEndpoints=${this.cameraEndpoints}
                 .cardWideConfig=${this.cardWideConfig}
                 ?controls=${this.liveConfig.controls.builtin}
-                @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
+                @camera-card-ha:live:error=${() => this._providerErrorHandler()}
               >
               </camera-card-ha-live-webrtc-card>`
             : provider === 'jsmpeg'
@@ -359,7 +359,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
                   .cameraConfig=${cameraConfig}
                   .cameraEndpoints=${this.cameraEndpoints}
                   .cardWideConfig=${this.cardWideConfig}
-                  @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
+                  @camera-card-ha:live:error=${() => this._providerErrorHandler()}
                 >
                 </camera-card-ha-live-jsmpeg>`
               : html``}

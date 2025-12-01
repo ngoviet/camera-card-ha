@@ -29,8 +29,8 @@ export class AdvancedCameraCardZoomer extends LitElement {
 
   connectedCallback(): void {
     super.connectedCallback();
-    this.addEventListener('advanced-camera-card:zoom:zoomed', this._zoomHandler);
-    this.addEventListener('advanced-camera-card:zoom:unzoomed', this._unzoomHandler);
+    this.addEventListener('camera-card-ha:zoom:zoomed', this._zoomHandler);
+    this.addEventListener('camera-card-ha:zoom:unzoomed', this._unzoomHandler);
 
     // Call for an update to activate.
     this.requestUpdate();
@@ -38,8 +38,8 @@ export class AdvancedCameraCardZoomer extends LitElement {
 
   disconnectedCallback(): void {
     this._zoom?.deactivate();
-    this.removeEventListener('advanced-camera-card:zoom:zoomed', this._zoomHandler);
-    this.removeEventListener('advanced-camera-card:zoom:unzoomed', this._unzoomHandler);
+    this.removeEventListener('camera-card-ha:zoom:zoomed', this._zoomHandler);
+    this.removeEventListener('camera-card-ha:zoom:unzoomed', this._unzoomHandler);
     super.disconnectedCallback();
   }
 

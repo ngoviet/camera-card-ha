@@ -33,7 +33,7 @@ import { localize } from '../localize/localize.js';
 import elementsStyle from '../scss/elements.scss';
 import { AdvancedCameraCardError } from '../types.js';
 import { errorToConsole } from '../utils/basic.js';
-import { fireAdvancedCameraCardEvent } from '../utils/fire-advanced-camera-card-event.js';
+import { fireAdvancedCameraCardEvent } from '../utils/fire-camera-card-ha-event.js';
 
 /* A note on picture element rendering:
  *
@@ -239,7 +239,7 @@ export class AdvancedCameraCardElements extends LitElement {
     }
     this._addHandler(
       path[0],
-      'advanced-camera-card:menu:remove',
+      'camera-card-ha:menu:remove',
       this._menuRemoveHandler,
     );
   };
@@ -252,7 +252,7 @@ export class AdvancedCameraCardElements extends LitElement {
     }
     this._addHandler(
       path[0],
-      'advanced-camera-card:status-bar:add',
+      'camera-card-ha:status-bar:add',
       this._statusBarRemoveHandler,
     );
   };
@@ -262,17 +262,17 @@ export class AdvancedCameraCardElements extends LitElement {
 
     // Catch icons being added to the menu or status-bar (so their removal can
     // be subsequently handled).
-    this.addEventListener('advanced-camera-card:menu:add', this._menuAddHandler);
+    this.addEventListener('camera-card-ha:menu:add', this._menuAddHandler);
     this.addEventListener(
-      'advanced-camera-card:status-bar:add',
+      'camera-card-ha:status-bar:add',
       this._statusBarAddHandler,
     );
   }
 
   disconnectedCallback(): void {
-    this.removeEventListener('advanced-camera-card:menu:add', this._menuAddHandler);
+    this.removeEventListener('camera-card-ha:menu:add', this._menuAddHandler);
     this.addEventListener(
-      'advanced-camera-card:status-bar:add',
+      'camera-card-ha:status-bar:add',
       this._statusBarAddHandler,
     );
     super.disconnectedCallback();

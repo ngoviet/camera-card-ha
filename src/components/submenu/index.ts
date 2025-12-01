@@ -72,7 +72,7 @@ export class AdvancedCameraCardSubmenu extends LitElement {
         @closed=${
           // Prevent the submenu closing from closing anything upstream (e.g.
           // selecting a submenu in the editor dialog should not close the
-          // editor, see https://github.com/dermotduffy/advanced-camera-card/issues/377).
+          // editor, see https://github.com/dermotduffy/camera-card-ha/issues/377).
           (ev) => ev.stopPropagation()
         }
         @click=${(ev: Event) => stopEventFromActivatingCardWideActions(ev)}

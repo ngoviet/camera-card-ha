@@ -81,7 +81,7 @@ export class AdvancedCameraCardGo2RTC extends LitElement implements MediaPlayer 
     super.connectedCallback();
 
     // Reset the player when reconnected to the DOM.
-    // https://github.com/dermotduffy/advanced-camera-card/issues/996
+    // https://github.com/dermotduffy/camera-card-ha/issues/996
     this.requestUpdate();
   }
 

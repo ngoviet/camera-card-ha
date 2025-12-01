@@ -21,7 +21,7 @@ import { CardWideConfig } from '../config/schema/types.js';
 import { HomeAssistant } from '../ha/types.js';
 import basicBlockStyle from '../scss/basic-block.scss';
 import { contentsChanged } from '../utils/basic.js';
-import { fireAdvancedCameraCardEvent } from '../utils/fire-advanced-camera-card-event.js';
+import { fireAdvancedCameraCardEvent } from '../utils/fire-camera-card-ha-event.js';
 import { QueryClassifier } from '../view/query-classifier.js';
 import './surround-basic.js';
 import './thumbnail-carousel';
@@ -163,7 +163,7 @@ export class AdvancedCameraCardSurround extends LitElement {
     };
 
     return html` <camera-card-ha-surround-basic
-      @advanced-camera-card:thumbnails-carousel:media-select=${(ev: CustomEvent) =>
+      @camera-card-ha:thumbnails-carousel:media-select=${(ev: CustomEvent) =>
         changeDrawer(ev, 'close')}
     >
       ${this.thumbnailConfig && this.thumbnailConfig.mode !== 'none'

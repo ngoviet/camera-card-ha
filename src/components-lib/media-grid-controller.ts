@@ -3,7 +3,7 @@ import Masonry from 'masonry-layout';
 import { ViewDisplayConfig } from '../config/schema/common/display';
 import { MediaLoadedInfo } from '../types';
 import { getChildrenFromElement, setOrRemoveAttribute } from '../utils/basic';
-import { fireAdvancedCameraCardEvent } from '../utils/fire-advanced-camera-card-event';
+import { fireAdvancedCameraCardEvent } from '../utils/fire-camera-card-ha-event';
 import {
   AdvancedCameraCardMediaLoadedEventTarget,
   dispatchExistingMediaLoadedInfoAsEvent,
@@ -285,7 +285,7 @@ export class MediaGridController {
     });
 
     child.addEventListener(
-      'advanced-camera-card:media:loaded',
+      'camera-card-ha:media:loaded',
       this._handleMediaLoadedInfoEvent,
     );
   }
@@ -296,7 +296,7 @@ export class MediaGridController {
     });
 
     child.removeEventListener(
-      'advanced-camera-card:media:loaded',
+      'camera-card-ha:media:loaded',
       this._handleMediaLoadedInfoEvent,
     );
   }
@@ -379,12 +379,12 @@ export class MediaGridController {
 
   protected _setColumnSizeStyles(): void {
     this._host.style.setProperty(
-      '--advanced-camera-card-grid-column-size',
+      '--camera-card-ha-grid-column-size',
       `${this._getColumnSize()}px`,
     );
 
     this._host.style.setProperty(
-      '--advanced-camera-card-grid-selected-width-factor',
+      '--camera-card-ha-grid-selected-width-factor',
       `${
         this._displayConfig?.grid_selected_width_factor ??
         MEDIA_GRID_DEFAULT_SELECTED_WIDTH_FACTOR

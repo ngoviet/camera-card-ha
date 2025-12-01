@@ -38,7 +38,7 @@ import {
   setOrRemoveAttribute,
 } from '../../utils/basic';
 import { findBestMediaTimeIndex } from '../../utils/find-best-media-time-index';
-import { fireAdvancedCameraCardEvent } from '../../utils/fire-advanced-camera-card-event';
+import { fireAdvancedCameraCardEvent } from '../../utils/fire-camera-card-ha-event';
 import { ViewMedia } from '../../view/item';
 import { ViewItemClassifier } from '../../view/item-classifier';
 import {
@@ -163,11 +163,11 @@ export class TimelineController {
     if (this._thumbnailConfig !== (options.thumbnailConfig ?? null)) {
       if (options.thumbnailConfig) {
         this._host.style.setProperty(
-          '--advanced-camera-card-thumbnail-size',
+          '--camera-card-ha-thumbnail-size',
           `${options?.thumbnailConfig.size}px`,
         );
       } else {
-        this._host.style.removeProperty('--advanced-camera-card-thumbnail-size');
+        this._host.style.removeProperty('--camera-card-ha-thumbnail-size');
       }
     }
 

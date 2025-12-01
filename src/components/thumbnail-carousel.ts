@@ -21,7 +21,7 @@ import { HomeAssistant } from '../ha/types.js';
 import thumbnailCarouselStyle from '../scss/thumbnail-carousel.scss';
 import { stopEventFromActivatingCardWideActions } from '../utils/action.js';
 import { CarouselDirection } from '../utils/embla/carousel-controller.js';
-import { fireAdvancedCameraCardEvent } from '../utils/fire-advanced-camera-card-event.js';
+import { fireAdvancedCameraCardEvent } from '../utils/fire-camera-card-ha-event.js';
 import { ViewItemClassifier } from '../view/item-classifier.js';
 import { ViewItem, ViewMedia } from '../view/item.js';
 import { QueryClassifier } from '../view/query-classifier.js';
@@ -58,7 +58,7 @@ export class AdvancedCameraCardThumbnailCarousel extends LitElement {
     if (changedProps.has('config')) {
       if (this.config?.size) {
         this.style.setProperty(
-          '--advanced-camera-card-thumbnail-size',
+          '--camera-card-ha-thumbnail-size',
           `${this.config.size}px`,
         );
       }
@@ -82,7 +82,7 @@ export class AdvancedCameraCardThumbnailCarousel extends LitElement {
 
     if (changedProps.has('viewManagerEpoch')) {
       this.style.setProperty(
-        '--advanced-camera-card-carousel-thumbnail-opacity',
+        '--camera-card-ha-carousel-thumbnail-opacity',
         !this.fadeThumbnails || this._getSelectedSlide() === null ? '1.0' : '0.4',
       );
     }
