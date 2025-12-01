@@ -5,7 +5,7 @@ const LOG_ACTIONS_LEVELS = ['debug', 'info', 'warn', 'error'] as const;
 export type LogActionLevel = (typeof LOG_ACTIONS_LEVELS)[number];
 
 export const logActionConfigSchema = advancedCameraCardCustomActionsBaseSchema.extend({
-  advanced_camera_card_action: z.literal('log'),
+  camera_card_ha_action: z.literal('log'),
   message: z.string(),
   level: z.enum(LOG_ACTIONS_LEVELS).default('info'),
 });

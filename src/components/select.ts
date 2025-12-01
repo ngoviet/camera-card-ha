@@ -112,6 +112,6 @@ export class AdvancedCameraCardSelect extends ScopedRegistryHost(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-select': AdvancedCameraCardSelect;
+    'camera-card-ha-select': AdvancedCameraCardSelect;
   }
 }

@@ -74,7 +74,7 @@ const plugins = [
 ];
 
 const outputEntryTemplate = {
-  entryFileNames: 'advanced-camera-card.js',
+  entryFileNames: 'camera-card-ha.js',
   dir: 'dist',
   chunkFileNames: (chunk) => {
     // Add "lang-" to the front of the language chunk names for readability.

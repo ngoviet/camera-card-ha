@@ -27,7 +27,7 @@ import { errorToConsole } from '../../../../utils/basic.js';
 import { renderMessage } from '../../../message.js';
 import { VideoRTC } from './video-rtc.js';
 
-customElements.define('advanced-camera-card-live-go2rtc-player', VideoRTC);
+customElements.define('camera-card-ha-live-go2rtc-player', VideoRTC);
 
 // Note (2023-02-18): Depending on the behavior of the player / browser is
 // possible this URL will need to be re-signed in order to avoid HA spamming
@@ -36,7 +36,7 @@ customElements.define('advanced-camera-card-live-go2rtc-player', VideoRTC);
 // provider).
 const GO2RTC_URL_SIGN_EXPIRY_SECONDS = 24 * 60 * 60;
 
-@customElement('advanced-camera-card-live-go2rtc')
+@customElement('camera-card-ha-live-go2rtc')
 export class AdvancedCameraCardGo2RTC extends LitElement implements MediaPlayer {
   // Not an reactive property to avoid resetting the video.
   public hass?: HomeAssistant;
@@ -226,6 +226,6 @@ export class AdvancedCameraCardGo2RTC extends LitElement implements MediaPlayer 
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-live-go2rtc': AdvancedCameraCardGo2RTC;
+    'camera-card-ha-live-go2rtc': AdvancedCameraCardGo2RTC;
   }
 }

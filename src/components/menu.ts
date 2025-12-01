@@ -14,7 +14,7 @@ import './icon.js';
 import './submenu/select-button.js';
 import './submenu/submenu-button';
 
-@customElement('advanced-camera-card-menu')
+@customElement('camera-card-ha-menu')
 export class AdvancedCameraCardMenu extends LitElement {
   protected _controller = new MenuController(this);
 
@@ -45,26 +45,26 @@ export class AdvancedCameraCardMenu extends LitElement {
       return;
     }
 
-    if (button.type === 'custom:advanced-camera-card-menu-submenu') {
-      return html` <advanced-camera-card-submenu-button
+    if (button.type === 'custom:camera-card-ha-menu-submenu') {
+      return html` <camera-card-ha-submenu-button
         .hass=${this.hass}
         .submenu=${button}
         @action=${(ev) => this._controller.handleAction(ev)}
       >
-      </advanced-camera-card-submenu-button>`;
-    } else if (button.type === 'custom:advanced-camera-card-menu-submenu-select') {
-      return html` <advanced-camera-card-submenu-select-button
+      </camera-card-ha-submenu-button>`;
+    } else if (button.type === 'custom:camera-card-ha-menu-submenu-select') {
+      return html` <camera-card-ha-submenu-select-button
         .hass=${this.hass}
         .submenuSelect=${button}
         .entityRegistryManager=${this.entityRegistryManager}
         @action=${(ev) => this._controller.handleAction(ev)}
       >
-      </advanced-camera-card-submenu-select-button>`;
+      </camera-card-ha-submenu-select-button>`;
     }
 
     const title =
       this.hass &&
-      button.type === 'custom:advanced-camera-card-menu-state-icon' &&
+      button.type === 'custom:camera-card-ha-menu-state-icon' &&
       !button.title
         ? getEntityTitle(this.hass, button.entity)
         : button.title;
@@ -77,7 +77,7 @@ export class AdvancedCameraCardMenu extends LitElement {
       .label=${title ?? ''}
       @action=${(ev) => this._controller.handleAction(ev, button)}
     >
-      <advanced-camera-card-icon
+      <camera-card-ha-icon
         ?allow-override-non-active-styles=${true}
         style="${styleMap(button.style || {})}"
         .hass=${this.hass}
@@ -87,7 +87,7 @@ export class AdvancedCameraCardMenu extends LitElement {
           stateColor: button.state_color,
           fallback: 'mdi:gesture-tap-button',
         }}
-      ></advanced-camera-card-icon>
+      ></camera-card-ha-icon>
     </ha-icon-button>`;
   }
 
@@ -173,6 +173,6 @@ export class AdvancedCameraCardMenu extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-menu': AdvancedCameraCardMenu;
+    'camera-card-ha-menu': AdvancedCameraCardMenu;
   }
 }

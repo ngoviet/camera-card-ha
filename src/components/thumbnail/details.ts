@@ -14,7 +14,7 @@ import thumbnailDetailsStyle from '../../scss/thumbnail-details.scss';
 import { ViewItem } from '../../view/item';
 import '../icon';
 
-@customElement('advanced-camera-card-thumbnail-details')
+@customElement('camera-card-ha-thumbnail-details')
 export class AdvancedCameraCardThumbnailDetails extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -52,10 +52,10 @@ export class AdvancedCameraCardThumbnailDetails extends LitElement {
               (detail) =>
                 html`<div>
                   ${detail.icon
-                    ? html` <advanced-camera-card-icon
+                    ? html` <camera-card-ha-icon
                         title=${detail.hint ?? ''}
                         .icon=${detail.icon}
-                      ></advanced-camera-card-icon>`
+                      ></camera-card-ha-icon>`
                     : ''}
                   <span>${detail.title}</span>
                 </div>`,
@@ -72,6 +72,6 @@ export class AdvancedCameraCardThumbnailDetails extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-thumbnail-details': AdvancedCameraCardThumbnailDetails;
+    'camera-card-ha-thumbnail-details': AdvancedCameraCardThumbnailDetails;
   }
 }

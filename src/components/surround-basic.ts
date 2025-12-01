@@ -11,7 +11,7 @@ interface AdvancedCameraCardDrawerOpen {
   drawer: 'left' | 'right';
 }
 
-@customElement('advanced-camera-card-surround-basic')
+@customElement('camera-card-ha-surround-basic')
 export class AdvancedCameraCardSurroundBasic extends LitElement {
   @property({ attribute: false })
   public drawerIcons?: {
@@ -54,20 +54,20 @@ export class AdvancedCameraCardSurroundBasic extends LitElement {
   protected render(): TemplateResult | void {
     return html` <slot name="above"></slot>
       <slot></slot>
-      <advanced-camera-card-drawer
+      <camera-card-ha-drawer
         ${ref(this._refDrawerLeft)}
         location="left"
         .icons=${this.drawerIcons?.left}
       >
         <slot name="left"></slot>
-      </advanced-camera-card-drawer>
-      <advanced-camera-card-drawer
+      </camera-card-ha-drawer>
+      <camera-card-ha-drawer
         ${ref(this._refDrawerRight)}
         location="right"
         .icons=${this.drawerIcons?.right}
       >
         <slot name="right"></slot>
-      </advanced-camera-card-drawer>
+      </camera-card-ha-drawer>
       <slot name="below"></slot>`;
   }
 
@@ -78,6 +78,6 @@ export class AdvancedCameraCardSurroundBasic extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-surround-basic': AdvancedCameraCardSurroundBasic;
+    'camera-card-ha-surround-basic': AdvancedCameraCardSurroundBasic;
   }
 }

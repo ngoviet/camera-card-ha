@@ -1,7 +1,7 @@
 {
   "name": "Camera Card HA",
   "render_readme": true,
-  "filename": "advanced-camera-card.js",
+  "filename": "camera-card-ha.js",
   "content_in_root": false,
   "homeassistant": "2022.3.0",
   "hacs": "1.6.0"

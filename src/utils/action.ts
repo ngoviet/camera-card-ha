@@ -40,7 +40,7 @@ export function createGeneralAction(
 ): GeneralActionConfig {
   return {
     action: 'fire-dom-event',
-    advanced_camera_card_action: action,
+    camera_card_ha_action: action,
     ...(options?.cardID && { card_id: options.cardID }),
   };
 }
@@ -54,7 +54,7 @@ export function createViewAction(
 ): ViewActionConfig {
   return {
     action: 'fire-dom-event',
-    advanced_camera_card_action: action,
+    camera_card_ha_action: action,
     ...(options?.cardID && { card_id: options.cardID }),
     ...(options?.folderID && { folder: options.folderID }),
   };
@@ -69,7 +69,7 @@ export function createCameraAction(
 ): CameraSelectActionConfig | SubstreamSelectActionConfig {
   return {
     action: 'fire-dom-event',
-    advanced_camera_card_action: action,
+    camera_card_ha_action: action,
     camera: camera,
     ...(options?.cardID && { card_id: options.cardID }),
   };
@@ -287,8 +287,8 @@ export const isAdvancedCameraCardCustomAction = (
 ): action is AdvancedCameraCardCustomActionConfig => {
   return (
     action.action === 'fire-dom-event' &&
-    'advanced_camera_card_action' in action &&
-    typeof action.advanced_camera_card_action === 'string'
+    'camera_card_ha_action' in action &&
+    typeof action.camera_card_ha_action === 'string'
   );
 };
 

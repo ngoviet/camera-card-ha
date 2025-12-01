@@ -77,14 +77,14 @@ export class QueryStringManager {
     const result: QueryStringViewIntent = {};
     for (const action of this._getActions()) {
       if (this._isViewAction(action)) {
-        (result.view ??= {}).view = action.advanced_camera_card_action;
+        (result.view ??= {}).view = action.camera_card_ha_action;
         (result.view ??= {}).default = undefined;
-      } else if (action.advanced_camera_card_action === 'default') {
+      } else if (action.camera_card_ha_action === 'default') {
         (result.view ??= {}).default = true;
         (result.view ??= {}).view = undefined;
-      } else if (action.advanced_camera_card_action === 'camera_select') {
+      } else if (action.camera_card_ha_action === 'camera_select') {
         (result.view ??= {}).camera = action.camera;
-      } else if (action.advanced_camera_card_action === 'live_substream_select') {
+      } else if (action.camera_card_ha_action === 'live_substream_select') {
         (result.view ??= {}).substream = action.camera;
       } else {
         (result.other ??= []).push(action);
@@ -155,7 +155,7 @@ export class QueryStringManager {
   protected _isViewAction = (
     action: AdvancedCameraCardCustomActionConfig,
   ): action is ViewActionConfig => {
-    switch (action.advanced_camera_card_action) {
+    switch (action.camera_card_ha_action) {
       case 'clip':
       case 'clips':
       case 'diagnostics':

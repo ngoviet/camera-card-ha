@@ -1,7 +1,7 @@
 /**
- * Dispatch an Advanced Camera Card event.
+ * Dispatch a Camera Card HA event.
  * @param target The target from which send the event.
- * @param type The type of the Advanced Camera Card event to send.
+ * @param type The type of the Camera Card HA event to send.
  * @param detail An optional detail object to attach.
  */
 export function fireAdvancedCameraCardEvent<T>(
@@ -15,7 +15,7 @@ export function fireAdvancedCameraCardEvent<T>(
   },
 ): void {
   target.dispatchEvent(
-    new CustomEvent<T>(`advanced-camera-card:${type}`, {
+    new CustomEvent<T>(`camera-card-ha:${type}`, {
       bubbles: options?.bubbles ?? true,
       composed: options?.composed ?? true,
       cancelable: options?.cancelable ?? false,

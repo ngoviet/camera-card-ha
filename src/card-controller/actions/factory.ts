@@ -81,7 +81,7 @@ export class ActionFactory {
       return new CustomAction(context, action, options?.config);
     }
 
-    switch (action.advanced_camera_card_action) {
+    switch (action.camera_card_ha_action) {
       case 'default':
         return new DefaultAction(context, action, options?.config);
       case 'clip':
@@ -159,7 +159,7 @@ export class ActionFactory {
 
     /* istanbul ignore next: this path cannot be reached -- @preserve */
     console.warn(
-      `Advanced Camera Card received unknown card action: ${action['advanced_camera_card_action']}`,
+      `Camera Card HA received unknown card action: ${action['camera_card_ha_action']}`,
     );
     /* istanbul ignore next: this path cannot be reached -- @preserve */
     return null;

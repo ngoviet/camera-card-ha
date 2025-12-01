@@ -34,7 +34,7 @@ import '../icon.js';
 import { renderMessage } from '../message.js';
 import './../media-dimensions-container';
 
-@customElement('advanced-camera-card-live-provider')
+@customElement('camera-card-ha-live-provider')
 export class AdvancedCameraCardLiveProvider extends LitElement implements MediaPlayer {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -82,7 +82,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
   // underlying code is not yet loaded.
   //
   // Test case: A card with a non-live view, but live pre-loaded, attempts to
-  // call mute() when the <advanced-camera-card-live> element first renders in
+  // call mute() when the <camera-card-ha-live> element first renders in
   // the background. These calls fail without waiting for loading here.
   protected _importPromises: Promise<unknown>[] = [];
 
@@ -198,7 +198,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
 
   protected _renderContainer(template: TemplateResult): TemplateResult {
     const config = this.camera?.getConfig();
-    const intermediateTemplate = html` <advanced-camera-card-media-dimensions-container
+    const intermediateTemplate = html` <camera-card-ha-media-dimensions-container
       .dimensionsConfig=${config?.dimensions}
       @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
         if (ev.detail.placeholder) {
@@ -209,10 +209,10 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
       }}
     >
       ${template}
-    </advanced-camera-card-media-dimensions-container>`;
+    </camera-card-ha-media-dimensions-container>`;
 
     return html` ${this.liveConfig?.zoomable
-      ? html` <advanced-camera-card-zoomer
+      ? html` <camera-card-ha-zoomer
           .defaultSettings=${guard([config?.dimensions?.layout], () =>
             config?.dimensions?.layout
               ? {
@@ -228,7 +228,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
             (await this.getMediaPlayerController())?.setControls()}
         >
           ${intermediateTemplate}
-        </advanced-camera-card-zoomer>`
+        </camera-card-ha-zoomer>`
       : intermediateTemplate}`;
   }
 
@@ -299,7 +299,7 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
 
     return html`${this._renderContainer(html`
       ${showImageDuringLoading || provider === 'image'
-        ? html` <advanced-camera-card-live-image
+        ? html` <camera-card-ha-live-image
             ${ref(this._refProvider)}
             .hass=${this.hass}
             .cameraConfig=${cameraConfig}
@@ -314,10 +314,10 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
               ev.detail.placeholder = provider !== 'image';
             }}
           >
-          </advanced-camera-card-live-image>`
+          </camera-card-ha-live-image>`
         : html``}
       ${provider === 'ha'
-        ? html` <advanced-camera-card-live-ha
+        ? html` <camera-card-ha-live-ha
             ${ref(this._refProvider)}
             class=${classMap(classes)}
             .hass=${this.hass}
@@ -325,9 +325,9 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
             ?controls=${this.liveConfig.controls.builtin}
             @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
           >
-          </advanced-camera-card-live-ha>`
+          </camera-card-ha-live-ha>`
         : provider === 'go2rtc'
-          ? html`<advanced-camera-card-live-go2rtc
+          ? html`<camera-card-ha-live-go2rtc
               ${ref(this._refProvider)}
               class=${classMap(classes)}
               .hass=${this.hass}
@@ -338,9 +338,9 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
               ?controls=${this.liveConfig.controls.builtin}
               @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
             >
-            </advanced-camera-card-live-go2rtc>`
+            </camera-card-ha-live-go2rtc>`
           : provider === 'webrtc-card'
-            ? html`<advanced-camera-card-live-webrtc-card
+            ? html`<camera-card-ha-live-webrtc-card
                 ${ref(this._refProvider)}
                 class=${classMap(classes)}
                 .hass=${this.hass}
@@ -350,9 +350,9 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
                 ?controls=${this.liveConfig.controls.builtin}
                 @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
               >
-              </advanced-camera-card-live-webrtc-card>`
+              </camera-card-ha-live-webrtc-card>`
             : provider === 'jsmpeg'
-              ? html` <advanced-camera-card-live-jsmpeg
+              ? html` <camera-card-ha-live-jsmpeg
                   ${ref(this._refProvider)}
                   class=${classMap(classes)}
                   .hass=${this.hass}
@@ -361,17 +361,17 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
                   .cardWideConfig=${this.cardWideConfig}
                   @advanced-camera-card:live:error=${() => this._providerErrorHandler()}
                 >
-                </advanced-camera-card-live-jsmpeg>`
+                </camera-card-ha-live-jsmpeg>`
               : html``}
     `)}
     ${showLoadingIcon
-      ? html`<advanced-camera-card-icon
+      ? html`<camera-card-ha-icon
           title=${localize('error.awaiting_live')}
           .icon=${{ icon: 'mdi:progress-helper' }}
           @click=${() => {
             this._showStreamTroubleshooting = !this._showStreamTroubleshooting;
           }}
-        ></advanced-camera-card-icon>`
+        ></camera-card-ha-icon>`
       : ''}
     ${this._showStreamTroubleshooting
       ? renderMessage(
@@ -396,6 +396,6 @@ export class AdvancedCameraCardLiveProvider extends LitElement implements MediaP
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-live-provider': AdvancedCameraCardLiveProvider;
+    'camera-card-ha-live-provider': AdvancedCameraCardLiveProvider;
   }
 }

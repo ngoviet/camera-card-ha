@@ -34,7 +34,7 @@ customElements.whenDefined('ha-camera-stream').then(() => {
   const STREAM_TYPE_MJPEG = 'mjpeg';
   type StreamType = STREAM_TYPE_HLS | STREAM_TYPE_WEB_RTC | STREAM_TYPE_MJPEG;
 
-  @customElement('advanced-camera-card-ha-camera-stream')
+  @customElement('camera-card-ha-ha-camera-stream')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   class AdvancedCameraCardHaCameraStream
     extends customElements.get('ha-camera-stream')
@@ -80,7 +80,7 @@ customElements.whenDefined('ha-camera-stream').then(() => {
       }
       if (stream.type === STREAM_TYPE_MJPEG) {
         return html`
-          <advanced-camera-card-image-player
+          <camera-card-ha-image-player
             @advanced-camera-card:media:loaded=${(ev: CustomEvent<MediaLoadedInfo>) => {
               this._storeMediaLoadedInfo(STREAM_TYPE_MJPEG, ev.detail);
               ev.stopPropagation();
@@ -90,12 +90,12 @@ customElements.whenDefined('ha-camera-stream').then(() => {
               : this._posterUrl || ''}
             technology="mjpeg"
             class="player"
-          ></advanced-camera-card-image-player>
+          ></camera-card-ha-image-player>
         `;
       }
 
       if (stream.type === STREAM_TYPE_HLS) {
-        return html` <advanced-camera-card-ha-hls-player
+        return html` <camera-card-ha-ha-hls-player
           ?autoplay=${false}
           playsinline
           .allowExoPlayer=${this.allowExoPlayer}
@@ -110,11 +110,11 @@ customElements.whenDefined('ha-camera-stream').then(() => {
           }}
           @streams=${this._handleHlsStreams}
           class="player ${stream.visible ? '' : 'hidden'}"
-        ></advanced-camera-card-ha-hls-player>`;
+        ></camera-card-ha-ha-hls-player>`;
       }
 
       if (stream.type === STREAM_TYPE_WEB_RTC) {
-        return html`<advanced-camera-card-ha-web-rtc-player
+        return html`<camera-card-ha-ha-web-rtc-player
           ?autoplay=${false}
           playsinline
           .muted=${this.muted}
@@ -128,7 +128,7 @@ customElements.whenDefined('ha-camera-stream').then(() => {
           }}
           @streams=${this._handleWebRtcStreams}
           class="player ${stream.visible ? '' : 'hidden'}"
-        ></advanced-camera-card-ha-web-rtc-player>`;
+        ></camera-card-ha-ha-web-rtc-player>`;
       }
 
       return nothing;
@@ -175,6 +175,6 @@ customElements.whenDefined('ha-camera-stream').then(() => {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-ha-camera-stream': AdvancedCameraCardHaCameraStream;
+    'camera-card-ha-ha-camera-stream': AdvancedCameraCardHaCameraStream;
   }
 }

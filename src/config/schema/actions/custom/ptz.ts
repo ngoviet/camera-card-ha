@@ -17,7 +17,7 @@ export const PTZ_ACTION_PHASES = ['start', 'stop'] as const;
 export type PTZActionPhase = (typeof PTZ_ACTION_PHASES)[number];
 
 export const ptzActionConfigSchema = advancedCameraCardCustomActionsBaseSchema.extend({
-  advanced_camera_card_action: z.literal('ptz'),
+  camera_card_ha_action: z.literal('ptz'),
   camera: z.string().optional(),
   ptz_action: z.enum(PTZ_ACTIONS).optional(),
   ptz_phase: z.enum(PTZ_ACTION_PHASES).optional(),

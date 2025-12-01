@@ -25,6 +25,6 @@ export type AdvancedCameraCardGeneralAction = (typeof GENERAL_ACTIONS)[number];
 
 export const generalActionConfigSchema =
   advancedCameraCardCustomActionsBaseSchema.extend({
-    advanced_camera_card_action: z.enum(GENERAL_ACTIONS),
+    camera_card_ha_action: z.enum(GENERAL_ACTIONS),
   });
 export type GeneralActionConfig = z.infer<typeof generalActionConfigSchema>;

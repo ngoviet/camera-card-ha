@@ -18,7 +18,7 @@ import { HomeAssistant } from '../../ha/types.js';
 import liveGridStyle from '../../scss/live-grid.scss';
 import './carousel.js';
 
-@customElement('advanced-camera-card-live-grid')
+@customElement('camera-card-ha-live-grid')
 export class AdvancedCameraCardLiveGrid extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -46,7 +46,7 @@ export class AdvancedCameraCardLiveGrid extends LitElement {
     const triggeredCameraID = cameraID ?? view?.camera;
 
     return html`
-      <advanced-camera-card-live-carousel
+      <camera-card-ha-live-carousel
         grid-id=${ifDefined(cameraID)}
         .hass=${this.hass}
         .viewManagerEpoch=${this.viewManagerEpoch}
@@ -58,7 +58,7 @@ export class AdvancedCameraCardLiveGrid extends LitElement {
         ?triggered=${triggeredCameraID &&
         !!this.triggeredCameraIDs?.has(triggeredCameraID)}
       >
-      </advanced-camera-card-live-carousel>
+      </camera-card-ha-live-carousel>
     `;
   }
 
@@ -94,7 +94,7 @@ export class AdvancedCameraCardLiveGrid extends LitElement {
     }
 
     return html`
-      <advanced-camera-card-media-grid
+      <camera-card-ha-media-grid
         .selected=${this.viewManagerEpoch?.manager.getView()?.camera}
         .displayConfig=${this.liveConfig?.display}
         @advanced-camera-card:media-grid:selected=${(
@@ -102,7 +102,7 @@ export class AdvancedCameraCardLiveGrid extends LitElement {
         ) => this._gridSelectCamera(ev.detail.selected)}
       >
         ${[...cameraIDs].map((cameraID) => this._renderCarousel(cameraID))}
-      </advanced-camera-card-media-grid>
+      </camera-card-ha-media-grid>
     `;
   }
 
@@ -113,6 +113,6 @@ export class AdvancedCameraCardLiveGrid extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-live-grid': AdvancedCameraCardLiveGrid;
+    'camera-card-ha-live-grid': AdvancedCameraCardLiveGrid;
   }
 }

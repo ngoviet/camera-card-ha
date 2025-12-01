@@ -26,7 +26,7 @@ import './surround.js';
 // something goes wrong.
 import './diagnostics.js';
 
-@customElement('advanced-camera-card-views')
+@customElement('camera-card-ha-views')
 export class AdvancedCameraCardViews extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -145,7 +145,7 @@ export class AdvancedCameraCardViews extends LitElement {
       ? this.cameraManager?.getStore().getCameraConfig(view.camera) ?? null
       : null;
 
-    return html` <advanced-camera-card-surround
+    return html` <camera-card-ha-surround
       class="${classMap(overallClasses)}"
       .hass=${this.hass}
       .viewManagerEpoch=${this.viewManagerEpoch}
@@ -158,17 +158,17 @@ export class AdvancedCameraCardViews extends LitElement {
       .cardWideConfig=${this.cardWideConfig}
     >
       ${!this.hide && view?.is('image') && cameraConfig
-        ? html` <advanced-camera-card-image
+        ? html` <camera-card-ha-image
             .imageConfig=${this.config.image}
             .viewManagerEpoch=${this.viewManagerEpoch}
             .hass=${this.hass}
             .cameraConfig=${cameraConfig}
             .cameraManager=${this.cameraManager}
           >
-          </advanced-camera-card-image>`
+          </camera-card-ha-image>`
         : ``}
       ${!this.hide && view?.isMediaGalleryView() && !view.is('folders')
-        ? html` <advanced-camera-card-media-gallery
+        ? html` <camera-card-ha-media-gallery
             .hass=${this.hass}
             .viewManagerEpoch=${this.viewManagerEpoch}
             .galleryConfig=${this.config.media_gallery}
@@ -176,11 +176,11 @@ export class AdvancedCameraCardViews extends LitElement {
             .viewItemManager=${this.viewItemManager}
             .cardWideConfig=${this.cardWideConfig}
           >
-          </advanced-camera-card-media-gallery>`
+          </camera-card-ha-media-gallery>`
         : ``}
       ${!this.hide && view?.isViewerView()
         ? html`
-            <advanced-camera-card-viewer
+            <camera-card-ha-viewer
               .hass=${this.hass}
               .viewManagerEpoch=${this.viewManagerEpoch}
               .viewerConfig=${this.config.media_viewer}
@@ -188,11 +188,11 @@ export class AdvancedCameraCardViews extends LitElement {
               .cameraManager=${this.cameraManager}
               .cardWideConfig=${this.cardWideConfig}
             >
-            </advanced-camera-card-viewer>
+            </camera-card-ha-viewer>
           `
         : ``}
       ${!this.hide && view?.is('timeline')
-        ? html` <advanced-camera-card-timeline
+        ? html` <camera-card-ha-timeline
             .hass=${this.hass}
             .viewManagerEpoch=${this.viewManagerEpoch}
             .timelineConfig=${this.config.timeline}
@@ -202,31 +202,31 @@ export class AdvancedCameraCardViews extends LitElement {
             .viewItemManager=${this.viewItemManager}
             .cardWideConfig=${this.cardWideConfig}
           >
-          </advanced-camera-card-timeline>`
+          </camera-card-ha-timeline>`
         : ``}
       ${!this.hide && view?.is('diagnostics')
-        ? html` <advanced-camera-card-diagnostics
+        ? html` <camera-card-ha-diagnostics
             .hass=${this.hass}
             .rawConfig=${this.rawConfig}
             .deviceRegistryManager=${this.deviceRegistryManager}
           >
-          </advanced-camera-card-diagnostics>`
+          </camera-card-ha-diagnostics>`
         : ``}
       ${!this.hide && view?.is('folders')
-        ? html` <advanced-camera-card-folder-gallery
+        ? html` <camera-card-ha-folder-gallery
             .hass=${this.hass}
             .viewManagerEpoch=${this.viewManagerEpoch}
             .viewItemManager=${this.viewItemManager}
             .galleryConfig=${this.config.media_gallery}
             .foldersManager=${this.foldersManager}
-          ></advanced-camera-card-folder-gallery>`
+          ></camera-card-ha-folder-gallery>`
         : ``}
       ${
         // Note: Subtle difference in condition below vs the other views in
         // order to always render the live view for live.preload mode.
         this._shouldLivePreload() || (!this.hide && view?.is('live'))
           ? html`
-              <advanced-camera-card-live
+              <camera-card-ha-live
                 .hass=${this.hass}
                 .viewManagerEpoch=${this.viewManagerEpoch}
                 .liveConfig=${this.config.live}
@@ -236,11 +236,11 @@ export class AdvancedCameraCardViews extends LitElement {
                 .triggeredCameraIDs=${this.triggeredCameraIDs}
                 class="${classMap(liveClasses)}"
               >
-              </advanced-camera-card-live>
+              </camera-card-ha-live>
             `
           : ``
       }
-    </advanced-camera-card-surround>`;
+    </camera-card-ha-surround>`;
   }
 
   static get styles(): CSSResultGroup {
@@ -250,6 +250,6 @@ export class AdvancedCameraCardViews extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-views': AdvancedCameraCardViews;
+    'camera-card-ha-views': AdvancedCameraCardViews;
   }
 }

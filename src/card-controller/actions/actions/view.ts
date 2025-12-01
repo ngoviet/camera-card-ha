@@ -8,7 +8,7 @@ export class ViewAction extends AdvancedCameraCardAction<ViewActionConfig> {
 
     await api.getViewManager().setViewByParametersWithNewQuery({
       params: {
-        view: this._action.advanced_camera_card_action,
+        view: this._action.camera_card_ha_action,
       },
       ...(this._action.folder && {
         queryExecutorOptions: {

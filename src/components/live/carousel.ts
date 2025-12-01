@@ -35,7 +35,7 @@ import '../ptz.js';
 import { AdvancedCameraCardPTZ } from '../ptz.js';
 import './provider.js';
 
-const ADVANCED_CAMERA_CARD_LIVE_PROVIDER = 'advanced-camera-card-live-provider';
+const ADVANCED_CAMERA_CARD_LIVE_PROVIDER = 'camera-card-ha-live-provider';
 
 interface CameraNeighbor {
   id: string;
@@ -47,7 +47,7 @@ interface CameraNeighbors {
   next?: CameraNeighbor;
 }
 
-@customElement('advanced-camera-card-live-carousel')
+@customElement('camera-card-ha-live-carousel')
 export class AdvancedCameraCardLiveCarousel extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -207,7 +207,7 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
 
     return html`
       <div class="embla__slide">
-        <advanced-camera-card-live-provider
+        <camera-card-ha-live-provider
           .microphoneState=${view?.camera === cameraID
             ? this.microphoneState
             : undefined}
@@ -228,7 +228,7 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
               cameraID,
             )}
         >
-        </advanced-camera-card-live-provider>
+        </camera-card-ha-live-provider>
       </div>
     `;
   }
@@ -287,7 +287,7 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
         ? neighbors?.previous
         : neighbors?.next;
 
-    return html`<advanced-camera-card-next-previous-control
+    return html`<camera-card-ha-next-previous-control
       slot=${side}
       .hass=${this.hass}
       .side=${side}
@@ -300,7 +300,7 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
         stopEventFromActivatingCardWideActions(ev);
       }}
     >
-    </advanced-camera-card-next-previous-control>`;
+    </camera-card-ha-next-previous-control>`;
   }
 
   protected render(): TemplateResult | void {
@@ -330,7 +330,7 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
     //   options/plugins actually change.
 
     return html`
-      <advanced-camera-card-carousel
+      <camera-card-ha-carousel
         ${ref(this._refCarousel)}
         .loop=${hasMultipleCameras}
         .dragEnabled=${hasMultipleCameras && this.liveConfig?.draggable}
@@ -353,15 +353,15 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
         ${slides}
         <!-- -->
         ${this._renderNextPrevious('right', neighbors)}
-      </advanced-camera-card-carousel>
-      <advanced-camera-card-ptz
+      </camera-card-ha-carousel>
+      <camera-card-ha-ptz
         .hass=${this.hass}
         .config=${this.liveConfig.controls.ptz}
         .cameraManager=${this.cameraManager}
         .cameraID=${getStreamCameraID(view, this.viewFilterCameraID)}
         .forceVisibility=${forcePTZVisibility}
       >
-      </advanced-camera-card-ptz>
+      </camera-card-ha-ptz>
     `;
   }
 
@@ -406,6 +406,6 @@ export class AdvancedCameraCardLiveCarousel extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-live-carousel': AdvancedCameraCardLiveCarousel;
+    'camera-card-ha-live-carousel': AdvancedCameraCardLiveCarousel;
   }
 }

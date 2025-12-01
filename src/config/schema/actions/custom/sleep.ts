@@ -10,7 +10,7 @@ const timeDeltaSchema = z.object({
 export type TimeDelta = z.infer<typeof timeDeltaSchema>;
 
 export const sleepActionConfigSchema = advancedCameraCardCustomActionsBaseSchema.extend({
-  advanced_camera_card_action: z.literal('sleep'),
+  camera_card_ha_action: z.literal('sleep'),
   duration: timeDeltaSchema.optional().default({ s: 1 }),
 });
 export type SleepActionConfig = z.infer<typeof sleepActionConfigSchema>;

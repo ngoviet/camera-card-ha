@@ -43,7 +43,7 @@ export const conditionalSchema: z.ZodSchema<Conditional, z.ZodTypeDef> = z.objec
 });
 
 export type AdvancedCameraCardConditional = {
-  type: 'custom:advanced-camera-card-conditional';
+  type: 'custom:camera-card-ha-conditional';
   conditions: AdvancedCameraCardCondition[];
   elements?: PictureElements;
 };
@@ -51,7 +51,7 @@ const advancedCameraCardConditionalSchema: z.ZodSchema<
   AdvancedCameraCardConditional,
   z.ZodTypeDef
 > = z.object({
-  type: z.literal('custom:advanced-camera-card-conditional'),
+  type: z.literal('custom:camera-card-ha-conditional'),
   conditions: advancedCameraCardConditionSchema.array(),
   elements: z.lazy(() => pictureElementsSchema),
 });

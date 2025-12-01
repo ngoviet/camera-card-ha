@@ -23,7 +23,7 @@ export function getConditionStateManagerViaEvent(
 
   /* Special note on what's going on here:
    *
-   * Some parts of the card (e.g. <advanced-camera-card-elements>) may have arbitrary
+   * Some parts of the card (e.g. <camera-card-ha-elements>) may have arbitrary
    * complexity and layers (that this card doesn't control) between that master
    * element and the element that needs to evaluate the condition. In these
    * cases there's no clean way to pass state from the rest of card down through

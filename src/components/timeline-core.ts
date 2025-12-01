@@ -38,7 +38,7 @@ import './thumbnail/thumbnail.js';
  * A simple thumbnail wrapper class for use in the timeline where Lit data
  * bindings are not available.
  */
-@customElement('advanced-camera-card-timeline-thumbnail')
+@customElement('camera-card-ha-timeline-thumbnail')
 export class AdvancedCameraCardTimelineThumbnail extends LitElement {
   @property({ attribute: true })
   public item?: IdType;
@@ -69,7 +69,7 @@ export class AdvancedCameraCardTimelineThumbnail extends LitElement {
     };
     this.dispatchEvent(
       new ThumbnailDataRequestEvent(
-        `advanced-camera-card:timeline:thumbnail-data-request`,
+        `camera-card-ha:timeline:thumbnail-data-request`,
         {
           composed: true,
           bubbles: true,
@@ -89,7 +89,7 @@ export class AdvancedCameraCardTimelineThumbnail extends LitElement {
       return html``;
     }
 
-    return html` <advanced-camera-card-thumbnail
+    return html` <camera-card-ha-thumbnail
       .hass=${dataRequest.hass}
       .cameraManager=${dataRequest.cameraManager}
       .viewItemManager=${dataRequest.viewItemManager}
@@ -97,11 +97,11 @@ export class AdvancedCameraCardTimelineThumbnail extends LitElement {
       .viewManagerEpoch=${dataRequest.viewManagerEpoch}
       ?details=${this.details}
     >
-    </advanced-camera-card-thumbnail>`;
+    </camera-card-ha-thumbnail>`;
   }
 }
 
-@customElement('advanced-camera-card-timeline-core')
+@customElement('camera-card-ha-timeline-core')
 export class AdvancedCameraCardTimelineCore extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -183,24 +183,24 @@ export class AdvancedCameraCardTimelineCore extends LitElement {
             : 'mdi:camera-lock';
 
     return html` <div
-      @advanced-camera-card:timeline:thumbnail-data-request=${this._controller
+      @camera-card-ha:timeline:thumbnail-data-request=${this._controller
         .handleThumbnailDataRequest}
       class="timeline"
       ${ref(this._refTimeline)}
     >
       <div class="timeline-tools">
         ${this._controller.shouldSupportSeeking()
-          ? html` <advanced-camera-card-icon
+          ? html` <camera-card-ha-icon
               .icon=${{ icon: panIcon }}
               @click=${() => this._controller.cyclePanMode()}
               aria-label="${panTitle}"
               title="${panTitle}"
             >
-            </advanced-camera-card-icon>`
+            </camera-card-ha-icon>`
           : ''}
-        <advanced-camera-card-date-picker
+        <camera-card-ha-date-picker
           ${ref(this._refDatePicker)}
-          @advanced-camera-card:date-picker:change=${(
+          @camera-card-ha:date-picker:change=${(
             ev: CustomEvent<DatePickerEvent>,
           ) => {
             if (ev.detail.date) {
@@ -208,7 +208,7 @@ export class AdvancedCameraCardTimelineCore extends LitElement {
             }
           }}
         >
-        </advanced-camera-card-date-picker>
+        </camera-card-ha-date-picker>
       </div>
     </div>`;
   }
@@ -279,7 +279,7 @@ export class AdvancedCameraCardTimelineCore extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-timeline-thumbnail': AdvancedCameraCardTimelineThumbnail;
-    'advanced-camera-card-timeline-core': AdvancedCameraCardTimelineCore;
+    'camera-card-ha-timeline-thumbnail': AdvancedCameraCardTimelineThumbnail;
+    'camera-card-ha-timeline-core': AdvancedCameraCardTimelineCore;
   }
 }

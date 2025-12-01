@@ -11,7 +11,7 @@ export interface DatePickerEvent {
   date: Date | null;
 }
 
-@customElement('advanced-camera-card-date-picker')
+@customElement('camera-card-ha-date-picker')
 export class AdvancedCameraCardDatePicker extends LitElement {
   @property({ attribute: false })
   public icon?: string;
@@ -45,7 +45,7 @@ export class AdvancedCameraCardDatePicker extends LitElement {
         @input=${() => changed()}
         @change=${() => changed()}
       />
-      <advanced-camera-card-icon
+      <camera-card-ha-icon
         aria-label="${localize('timeline.select_date')}"
         title="${localize('timeline.select_date')}"
         .icon=${{ icon: this.icon ?? `mdi:calendar-search` }}
@@ -54,7 +54,7 @@ export class AdvancedCameraCardDatePicker extends LitElement {
           this._refInput.value?.showPicker();
         }}
       >
-      </advanced-camera-card-icon>`;
+      </camera-card-ha-icon>`;
   }
 
   static get styles(): CSSResultGroup {
@@ -64,6 +64,6 @@ export class AdvancedCameraCardDatePicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-date-picker': AdvancedCameraCardDatePicker;
+    'camera-card-ha-date-picker': AdvancedCameraCardDatePicker;
   }
 }

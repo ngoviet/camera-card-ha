@@ -35,7 +35,7 @@ export class BaseAction<T extends ActionConfig> implements Action {
   public async execute(api: CardActionsAPI): Promise<void> {
     if (this._shouldSeekConfirmation(api)) {
       const actionName = isAdvancedCameraCardCustomAction(this._action)
-        ? this._action.advanced_camera_card_action
+        ? this._action.camera_card_ha_action
         : this._action.action;
       const text =
         (typeof this._action.confirmation === 'object'

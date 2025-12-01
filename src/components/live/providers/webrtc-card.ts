@@ -44,7 +44,7 @@ import { VideoRTC } from './go2rtc/video-rtc.js';
 
 // Create a wrapper for AlexxIT's WebRTC card
 //  - https://github.com/AlexxIT/WebRTC
-@customElement('advanced-camera-card-live-webrtc-card')
+@customElement('camera-card-ha-live-webrtc-card')
 export class AdvancedCameraCardLiveWebRTCCard extends LitElement implements MediaPlayer {
   @property({ attribute: false })
   public cameraConfig?: CameraConfig;
@@ -229,6 +229,6 @@ export class AdvancedCameraCardLiveWebRTCCard extends LitElement implements Medi
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-live-webrtc-card': AdvancedCameraCardLiveWebRTCCard;
+    'camera-card-ha-live-webrtc-card': AdvancedCameraCardLiveWebRTCCard;
   }
 }

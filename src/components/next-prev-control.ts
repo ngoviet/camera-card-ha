@@ -8,7 +8,7 @@ import { Icon } from '../types.js';
 import { renderTask } from '../utils/task.js';
 import { createFetchThumbnailTask } from '../utils/thumbnail.js';
 
-@customElement('advanced-camera-card-next-previous-control')
+@customElement('camera-card-ha-next-previous-control')
 export class AdvancedCameraCardNextPreviousControl extends LitElement {
   @property({ attribute: false })
   public side?: 'left' | 'right';
@@ -75,10 +75,10 @@ export class AdvancedCameraCardNextPreviousControl extends LitElement {
       };
 
       return html` <ha-icon-button class="${classMap(classes)}" .label=${this.label}>
-        <advanced-camera-card-icon
+        <camera-card-ha-icon
           .hass=${this.hass}
           .icon=${icon}
-        ></advanced-camera-card-icon>
+        ></camera-card-ha-icon>
       </ha-icon-button>`;
     };
 
@@ -117,6 +117,6 @@ export class AdvancedCameraCardNextPreviousControl extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-next-previous-control': AdvancedCameraCardNextPreviousControl;
+    'camera-card-ha-next-previous-control': AdvancedCameraCardNextPreviousControl;
   }
 }

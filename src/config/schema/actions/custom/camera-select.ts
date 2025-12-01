@@ -3,7 +3,7 @@ import { advancedCameraCardCustomActionsBaseSchema } from './base';
 
 export const cameraSelectActionConfigSchema =
   advancedCameraCardCustomActionsBaseSchema.extend({
-    advanced_camera_card_action: z.literal('camera_select'),
+    camera_card_ha_action: z.literal('camera_select'),
     camera: z.string().optional(),
     triggered: z.boolean().optional(),
   });

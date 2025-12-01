@@ -4,12 +4,12 @@ import loadingStyle from '../scss/loading.scss';
 import { getReleaseVersion } from '../utils/diagnostics';
 import './icon';
 
-@customElement('advanced-camera-card-loading')
+@customElement('camera-card-ha-loading')
 export class AdvancedCameraCardLoading extends LitElement {
   protected render(): TemplateResult {
-    return html`<advanced-camera-card-icon
+    return html`<camera-card-ha-icon
         .icon=${{ icon: 'iris' }}
-      ></advanced-camera-card-icon
+      ></camera-card-ha-icon
       ><span>${getReleaseVersion()}</span>`;
   }
 
@@ -20,6 +20,6 @@ export class AdvancedCameraCardLoading extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-loading': AdvancedCameraCardLoading;
+    'camera-card-ha-loading': AdvancedCameraCardLoading;
   }
 }

@@ -17,7 +17,7 @@ import { resolveImageMode } from './image-updating-player';
 import './media-dimensions-container';
 import './zoomer.js';
 
-@customElement('advanced-camera-card-image')
+@customElement('camera-card-ha-image')
 export class AdvancedCameraCardImage extends LitElement implements MediaPlayer {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -49,14 +49,14 @@ export class AdvancedCameraCardImage extends LitElement implements MediaPlayer {
       cameraConfig: this.cameraConfig,
     });
 
-    const intermediateTemplate = html` <advanced-camera-card-media-dimensions-container
+    const intermediateTemplate = html` <camera-card-ha-media-dimensions-container
       .dimensionsConfig=${mode === 'camera' ? this.cameraConfig?.dimensions : undefined}
     >
       ${template}
-    </advanced-camera-card-media-dimensions-container>`;
+    </camera-card-ha-media-dimensions-container>`;
 
     return html` ${this.imageConfig?.zoomable
-      ? html`<advanced-camera-card-zoomer
+      ? html`<camera-card-ha-zoomer
           .defaultSettings=${guard(
             [this.imageConfig, this.cameraConfig?.dimensions?.layout],
             () =>
@@ -76,7 +76,7 @@ export class AdvancedCameraCardImage extends LitElement implements MediaPlayer {
             )}
         >
           ${intermediateTemplate}
-        </advanced-camera-card-zoomer>`
+        </camera-card-ha-zoomer>`
       : intermediateTemplate}`;
   }
 
@@ -86,14 +86,14 @@ export class AdvancedCameraCardImage extends LitElement implements MediaPlayer {
     }
 
     return this._renderContainer(html`
-      <advanced-camera-card-image-updating-player
+      <camera-card-ha-image-updating-player
         ${ref(this._refImage)}
         .hass=${this.hass}
         .view=${this.viewManagerEpoch?.manager.getView()}
         .imageConfig=${this.imageConfig}
         .cameraConfig=${this.cameraConfig}
       >
-      </advanced-camera-card-image-updating-player>
+      </camera-card-ha-image-updating-player>
     `);
   }
 
@@ -104,6 +104,6 @@ export class AdvancedCameraCardImage extends LitElement implements MediaPlayer {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-image': AdvancedCameraCardImage;
+    'camera-card-ha-image': AdvancedCameraCardImage;
   }
 }

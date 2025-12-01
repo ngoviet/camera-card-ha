@@ -19,7 +19,7 @@
 - ✅ Topics đã thêm (hacs, home-assistant, lovelace, camera-card)
 - ✅ Release v0.1.6 với assets (157 files)
 - ✅ hacs.json đúng format
-- ✅ Main file: advanced-camera-card.js exists
+- ✅ Main file: camera-card-ha.js exists
 - ✅ GitHub Actions HACS validation đã chạy
 
 ## Các bước Submit

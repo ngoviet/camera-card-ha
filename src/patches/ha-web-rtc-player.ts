@@ -35,7 +35,7 @@ customElements.whenDefined('ha-web-rtc-player').then(() => {
     'ha-web-rtc-player',
   ) as ConstructableLitElement;
 
-  @customElement('advanced-camera-card-ha-web-rtc-player')
+  @customElement('camera-card-ha-ha-web-rtc-player')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   class AdvancedCameraCardHaWebRtcPlayer extends HaWebRtcPlayer implements MediaPlayer {
     protected _mediaPlayerController = new VideoMediaPlayerController(
@@ -159,6 +159,6 @@ customElements.whenDefined('ha-web-rtc-player').then(() => {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-ha-web-rtc-player': AdvancedCameraCardHaWebRtcPlayer;
+    'camera-card-ha-ha-web-rtc-player': AdvancedCameraCardHaWebRtcPlayer;
   }
 }

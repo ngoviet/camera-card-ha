@@ -1062,7 +1062,7 @@ export class TimelineController {
         disabled: false,
         filterOptions: {
           whiteList: {
-            'advanced-camera-card-timeline-thumbnail': ['details', 'item'],
+            'camera-card-ha-timeline-thumbnail': ['details', 'item'],
             div: ['title'],
             span: ['style'],
           },
@@ -1087,10 +1087,10 @@ export class TimelineController {
     // Note that changes to attributes here must be mirrored in the xss
     // whitelist in `_getOptions()` .
     return `
-        <advanced-camera-card-timeline-thumbnail
+        <camera-card-ha-timeline-thumbnail
           item='${item.id}'
           ${this._thumbnailConfig?.show_details ? 'details' : ''}
         >
-        </advanced-camera-card-timeline-thumbnail>`;
+        </camera-card-ha-timeline-thumbnail>`;
   }
 }

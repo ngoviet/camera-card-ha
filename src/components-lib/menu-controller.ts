@@ -168,7 +168,7 @@ export class MenuController {
   protected _isMenuToggleAction(action: ActionConfig): boolean {
     return (
       action.action === 'fire-dom-event' &&
-      action.advanced_camera_card_action === 'menu_toggle'
+      action.camera_card_ha_action === 'menu_toggle'
     );
   }
 }

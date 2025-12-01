@@ -12,7 +12,7 @@ import { HomeAssistant } from '../ha/types';
 import iconStyle from '../scss/icon.scss';
 import { Icon } from '../types';
 
-@customElement('advanced-camera-card-icon')
+@customElement('camera-card-ha-icon')
 export class AdvancedCameraCardIcon extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -83,6 +83,6 @@ export class AdvancedCameraCardIcon extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-icon': AdvancedCameraCardIcon;
+    'camera-card-ha-icon': AdvancedCameraCardIcon;
   }
 }

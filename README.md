@@ -128,7 +128,7 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
    - ✅ Topics added (hacs, home-assistant, lovelace, etc.)
    - ✅ Release v0.1.6 with assets (157 files)
    - ✅ Valid `hacs.json` file
-   - ✅ Main file: `advanced-camera-card.js` exists in release
+   - ✅ Main file: `camera-card-ha.js` exists in release
 
 6. **Submit to HACS Default Repositories** (Optional but recommended):
    - If repository still not found after 24 hours, consider submitting to HACS default list
@@ -156,7 +156,7 @@ See [Advanced Installation](https://card.camera/advanced-installation) for manua
 ### Minimal Configuration
 
 ```yaml
-type: custom:advanced-camera-card
+type: custom:camera-card-ha
 cameras:
   - camera_entity: camera.office
 ```
@@ -164,7 +164,7 @@ cameras:
 ### Multi-Camera Grid
 
 ```yaml
-type: custom:advanced-camera-card
+type: custom:camera-card-ha
 cameras:
   - camera_entity: camera.office
   - camera_entity: camera.kitchen
@@ -176,7 +176,7 @@ live:
 ### Timeline with Scrubbing
 
 ```yaml
-type: custom:advanced-camera-card
+type: custom:camera-card-ha
 cameras:
   - camera_entity: camera.office
 profiles:

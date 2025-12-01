@@ -30,7 +30,7 @@ const MEDIA_GALLERY_FILTER_MENU_ICONS = {
   open: 'mdi:filter-cog',
 };
 
-@customElement('advanced-camera-card-media-gallery')
+@customElement('camera-card-ha-media-gallery')
 export class AdvancedCameraCardMediaGallery extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -73,7 +73,7 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
     return html`
       ${this._controller.getMedia()?.map(
         (media, index) =>
-          html`<advanced-camera-card-thumbnail
+          html`<camera-card-ha-thumbnail
             class=${classMap({
               selected: media === selected,
             })}
@@ -97,7 +97,7 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
               }
             }}
           >
-          </advanced-camera-card-thumbnail>`,
+          </camera-card-ha-thumbnail>`,
       )}
     `;
   }
@@ -107,7 +107,7 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
       !!this.viewManagerEpoch?.manager.getView()?.context?.loading?.query;
 
     return html`
-      <advanced-camera-card-surround-basic
+      <camera-card-ha-surround-basic
         .drawerIcons=${{
           ...(this.galleryConfig &&
             this.galleryConfig.controls.filter.mode !== 'none' && {
@@ -116,14 +116,14 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
         }}
       >
         ${this.galleryConfig && this.galleryConfig.controls.filter.mode !== 'none'
-          ? html` <advanced-camera-card-media-filter
+          ? html` <camera-card-ha-media-filter
               .hass=${this.hass}
               .cameraManager=${this.cameraManager}
               .viewManagerEpoch=${this.viewManagerEpoch}
               .cardWideConfig=${this.cardWideConfig}
               slot=${this.galleryConfig.controls.filter.mode}
             >
-            </advanced-camera-card-media-filter>`
+            </camera-card-ha-media-filter>`
           : ''}
         ${!this._controller.getMedia()?.length
           ? renderMessage({
@@ -134,7 +134,7 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
               icon: 'mdi:multimedia',
               dotdotdot: mediaIsLoading,
             })
-          : html`<advanced-camera-card-gallery-core
+          : html`<camera-card-ha-gallery-core
               .hass=${this.hass}
               .columnWidth=${this._controller.getColumnWidth(
                 this.galleryConfig?.controls.thumbnails,
@@ -160,8 +160,8 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
               ) => this._extendGallery(ev, 'earlier')}
             >
               ${this._renderThumbnails()}
-            </advanced-camera-card-gallery-core>`}
-      </advanced-camera-card-surround-basic>
+            </camera-card-ha-gallery-core>`}
+      </camera-card-ha-surround-basic>
     `;
   }
 
@@ -189,6 +189,6 @@ export class AdvancedCameraCardMediaGallery extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-media-gallery': AdvancedCameraCardMediaGallery;
+    'camera-card-ha-media-gallery': AdvancedCameraCardMediaGallery;
   }
 }

@@ -92,11 +92,11 @@ export class StatusBarController {
 
   protected _getSufficientValue(item: StatusBarItem): string | null {
     /* istanbul ignore else: cannot happen -- @preserve */
-    if (item.type === 'custom:advanced-camera-card-status-bar-icon') {
+    if (item.type === 'custom:camera-card-ha-status-bar-icon') {
       return item.icon;
-    } else if (item.type === 'custom:advanced-camera-card-status-bar-string') {
+    } else if (item.type === 'custom:camera-card-ha-status-bar-string') {
       return item.string;
-    } else if (item.type === 'custom:advanced-camera-card-status-bar-image') {
+    } else if (item.type === 'custom:camera-card-ha-status-bar-image') {
       return item.image;
     } else {
       return null;

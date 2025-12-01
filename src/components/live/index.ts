@@ -10,7 +10,7 @@ import { HomeAssistant } from '../../ha/types.js';
 import basicBlockStyle from '../../scss/basic-block.scss';
 import './grid.js';
 
-@customElement('advanced-camera-card-live')
+@customElement('camera-card-ha-live')
 export class AdvancedCameraCardLive extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -41,7 +41,7 @@ export class AdvancedCameraCardLive extends LitElement {
     }
 
     return html`
-      <advanced-camera-card-live-grid
+      <camera-card-ha-live-grid
         .hass=${this.hass}
         .viewManagerEpoch=${this.viewManagerEpoch}
         .liveConfig=${this.liveConfig}
@@ -51,7 +51,7 @@ export class AdvancedCameraCardLive extends LitElement {
         .microphoneState=${this.microphoneState}
         .triggeredCameraIDs=${this.triggeredCameraIDs}
       >
-      </advanced-camera-card-live-grid>
+      </camera-card-ha-live-grid>
     `;
   }
 
@@ -62,6 +62,6 @@ export class AdvancedCameraCardLive extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-live': AdvancedCameraCardLive;
+    'camera-card-ha-live': AdvancedCameraCardLive;
   }
 }

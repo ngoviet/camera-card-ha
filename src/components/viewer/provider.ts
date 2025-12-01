@@ -39,7 +39,7 @@ import { renderProgressIndicator } from '../progress-indicator.js';
 import '../video-player.js';
 import './../media-dimensions-container';
 
-@customElement('advanced-camera-card-viewer-provider')
+@customElement('camera-card-ha-viewer-provider')
 export class AdvancedCameraCardViewerProvider extends LitElement implements MediaPlayer {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -224,15 +224,15 @@ export class AdvancedCameraCardViewerProvider extends LitElement implements Medi
       : null;
     const view = this.viewManagerEpoch?.manager.getView();
 
-    const intermediateTemplate = html` <advanced-camera-card-media-dimensions-container
+    const intermediateTemplate = html` <camera-card-ha-media-dimensions-container
       .dimensionsConfig=${this._getRelevantCameraConfig()?.dimensions}
     >
       ${template}
-    </advanced-camera-card-media-dimensions-container>`;
+    </camera-card-ha-media-dimensions-container>`;
 
     return html`
       ${this.viewerConfig?.zoomable
-        ? html`<advanced-camera-card-zoomer
+        ? html`<camera-card-ha-zoomer
             .defaultSettings=${guard([cameraConfig?.dimensions?.layout], () =>
               cameraConfig?.dimensions?.layout
                 ? {
@@ -256,7 +256,7 @@ export class AdvancedCameraCardViewerProvider extends LitElement implements Medi
               )}
           >
             ${intermediateTemplate}
-          </advanced-camera-card-zoomer>`
+          </camera-card-ha-zoomer>`
         : intermediateTemplate}
     `;
   }
@@ -282,7 +282,7 @@ export class AdvancedCameraCardViewerProvider extends LitElement implements Medi
     return this._renderContainer(html`
       ${ViewItemClassifier.isVideo(this.media)
         ? this.media.getVideoContentType() === VideoContentType.HLS
-          ? html`<advanced-camera-card-ha-hls-player
+          ? html`<camera-card-ha-ha-hls-player
               ${ref(this._refProvider)}
               allow-exoplayer
               aria-label="${this.media.getTitle() ?? ''}"
@@ -295,18 +295,18 @@ export class AdvancedCameraCardViewerProvider extends LitElement implements Medi
               .hass=${this.hass}
               ?controls=${this.viewerConfig.controls.builtin}
             >
-            </advanced-camera-card-ha-hls-player>`
+            </camera-card-ha-ha-hls-player>`
           : html`
-              <advanced-camera-card-video-player
+              <camera-card-ha-video-player
                 ${ref(this._refProvider)}
                 url=${this._url}
                 aria-label="${this.media.getTitle() ?? ''}"
                 title="${this.media.getTitle() ?? ''}"
                 ?controls=${this.viewerConfig.controls.builtin}
               >
-              </advanced-camera-card-video-player>
+              </camera-card-ha-video-player>
             `
-        : html`<advanced-camera-card-image-player
+        : html`<camera-card-ha-image-player
             ${ref(this._refProvider)}
             url="${this._url}"
             aria-label="${this.media.getTitle() ?? ''}"
@@ -316,7 +316,7 @@ export class AdvancedCameraCardViewerProvider extends LitElement implements Medi
                 this._switchToRelatedClipView();
               }
             }}
-          ></advanced-camera-card-image-player>`}
+          ></camera-card-ha-image-player>`}
     `);
   }
 
@@ -327,6 +327,6 @@ export class AdvancedCameraCardViewerProvider extends LitElement implements Medi
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-viewer-provider': AdvancedCameraCardViewerProvider;
+    'camera-card-ha-viewer-provider': AdvancedCameraCardViewerProvider;
   }
 }

@@ -399,7 +399,7 @@ const options: EditorOptions = {
   },
 };
 
-@customElement('advanced-camera-card-editor')
+@customElement('camera-card-ha-editor')
 export class AdvancedCameraCardEditor extends LitElement implements LovelaceCardEditor {
   @property({ attribute: false }) public hass?: HomeAssistant;
   @state() protected _config?: RawAdvancedCameraCardConfig;
@@ -1020,9 +1020,9 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
         .key=${optionSetName}
       >
         <div class="row">
-          <advanced-camera-card-icon
+          <camera-card-ha-icon
             .icon=${{ icon: `mdi:${optionSet.icon}` }}
-          ></advanced-camera-card-icon>
+          ></camera-card-ha-icon>
           <div class="title ${titleClass ?? ''}">${optionSet.name}</div>
         </div>
         <div class="secondary">${optionSet.secondary}</div>
@@ -1339,13 +1339,13 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
     configPath: string,
     defaultValue: KeyboardShortcut,
   ): TemplateResult {
-    return html` <advanced-camera-card-key-assigner
+    return html` <camera-card-ha-key-assigner
       .label=${localize(`config.${configPath}`)}
       .value=${this._config
         ? getConfigValue(this._config, configPath, defaultValue)
         : null}
       @value-changed=${(ev) => this._valueChangedHandler(configPath, ev)}
-    ></advanced-camera-card-key-assigner>`;
+    ></camera-card-ha-key-assigner>`;
   }
 
   protected _renderViewKeyboardShortcutMenu(): TemplateResult {
@@ -1496,7 +1496,7 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
         .domain=${domain}
         .key=${key}
       >
-        <advanced-camera-card-icon .icon=${{ icon: icon }}></advanced-camera-card-icon>
+        <camera-card-ha-icon .icon=${{ icon: icon }}></camera-card-ha-icon>
         <span>${localize(labelPath)}</span>
       </div>
       ${selected ? html`<div class="values">${template}</div>` : ''}
@@ -1978,9 +1978,9 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
               return false;
             })}
         >
-          <advanced-camera-card-icon
+          <camera-card-ha-icon
             .icon=${{ icon: 'mdi:arrow-up' }}
-          ></advanced-camera-card-icon>
+          ></camera-card-ha-icon>
         </ha-icon-button>
         <ha-icon-button
           .label=${localize('editor.move_down')}
@@ -2000,9 +2000,9 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
               return false;
             })}
         >
-          <advanced-camera-card-icon
+          <camera-card-ha-icon
             .icon=${{ icon: 'mdi:arrow-down' }}
-          ></advanced-camera-card-icon>
+          ></camera-card-ha-icon>
         </ha-icon-button>
         <ha-icon-button
           .label=${localize('editor.delete')}
@@ -2019,9 +2019,9 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
             });
           }}
         >
-          <advanced-camera-card-icon
+          <camera-card-ha-icon
             .icon=${{ icon: 'mdi:delete' }}
-          ></advanced-camera-card-icon>
+          ></camera-card-ha-icon>
         </ha-icon-button>
       </div>
     `;
@@ -2049,9 +2049,9 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
         .domain=${MENU_FOLDERS}
         .key=${folderIndex}
       >
-        <advanced-camera-card-icon
+        <camera-card-ha-icon
           .icon=${{ icon: addNewFolder ? 'mdi:folder-plus' : 'mdi:folder' }}
-        ></advanced-camera-card-icon>
+        ></camera-card-ha-icon>
         <span>
           ${addNewFolder
             ? html` <span class="new"> [${localize('editor.add_new_folder')}...] </span>`
@@ -2169,9 +2169,9 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
           .domain=${MENU_CAMERAS}
           .key=${cameraIndex}
         >
-          <advanced-camera-card-icon
+          <camera-card-ha-icon
             .icon=${{ icon: addNewCamera ? 'mdi:video-plus' : 'mdi:video' }}
-          ></advanced-camera-card-icon>
+          ></camera-card-ha-icon>
           <span>
             ${addNewCamera
               ? html` <span class="new">
@@ -3351,6 +3351,6 @@ export class AdvancedCameraCardEditor extends LitElement implements LovelaceCard
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-editor': AdvancedCameraCardEditor;
+    'camera-card-ha-editor': AdvancedCameraCardEditor;
   }
 }

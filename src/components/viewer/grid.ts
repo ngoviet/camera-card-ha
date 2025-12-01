@@ -19,7 +19,7 @@ import '../../patches/ha-hls-player.js';
 import basicBlockStyle from '../../scss/basic-block.scss';
 import './carousel';
 
-@customElement('advanced-camera-card-viewer-grid')
+@customElement('camera-card-ha-viewer-grid')
 export class AdvancedCameraCardViewerGrid extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -42,7 +42,7 @@ export class AdvancedCameraCardViewerGrid extends LitElement {
   protected _renderCarousel(filterCamera?: string): TemplateResult {
     const selectedCameraID = this.viewManagerEpoch?.manager.getView()?.camera;
     return html`
-      <advanced-camera-card-viewer-carousel
+      <camera-card-ha-viewer-carousel
         grid-id=${ifDefined(filterCamera)}
         .hass=${this.hass}
         .viewManagerEpoch=${this.viewManagerEpoch}
@@ -53,7 +53,7 @@ export class AdvancedCameraCardViewerGrid extends LitElement {
         .cardWideConfig=${this.cardWideConfig}
         .showControls=${!filterCamera || selectedCameraID === filterCamera}
       >
-      </advanced-camera-card-viewer-carousel>
+      </camera-card-ha-viewer-carousel>
     `;
   }
 
@@ -93,7 +93,7 @@ export class AdvancedCameraCardViewerGrid extends LitElement {
     }
 
     return html`
-      <advanced-camera-card-media-grid
+      <camera-card-ha-media-grid
         .selected=${view?.camera}
         .displayConfig=${this.viewerConfig?.display}
         @advanced-camera-card:media-grid:selected=${(
@@ -101,7 +101,7 @@ export class AdvancedCameraCardViewerGrid extends LitElement {
         ) => this._gridSelectCamera(ev.detail.selected)}
       >
         ${[...cameraIDs].map((cameraID) => this._renderCarousel(cameraID))}
-      </advanced-camera-card-media-grid>
+      </camera-card-ha-media-grid>
     `;
   }
 
@@ -112,6 +112,6 @@ export class AdvancedCameraCardViewerGrid extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-viewer-grid': AdvancedCameraCardViewerGrid;
+    'camera-card-ha-viewer-grid': AdvancedCameraCardViewerGrid;
   }
 }

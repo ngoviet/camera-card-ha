@@ -11,7 +11,7 @@ import { ZoomController } from '../components-lib/zoom/zoom-controller.js';
 import { setOrRemoveAttribute } from '../utils/basic.js';
 import { PartialZoomSettings } from '../components-lib/zoom/types.js';
 
-@customElement('advanced-camera-card-zoomer')
+@customElement('camera-card-ha-zoomer')
 export class AdvancedCameraCardZoomer extends LitElement {
   protected _zoom: ZoomController | null = null;
 
@@ -88,6 +88,6 @@ export class AdvancedCameraCardZoomer extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-zoomer': AdvancedCameraCardZoomer;
+    'camera-card-ha-zoomer': AdvancedCameraCardZoomer;
   }
 }

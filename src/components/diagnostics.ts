@@ -9,7 +9,7 @@ import basicBlockStyle from '../scss/basic-block.scss';
 import { getDiagnostics } from '../utils/diagnostics';
 import { renderMessage } from './message';
 
-@customElement('advanced-camera-card-diagnostics')
+@customElement('camera-card-ha-diagnostics')
 export class AdvancedCameraCardDiagnostics extends LitElement {
   // Not a reactive property to avoid multiple diagnostics fetches.
   public hass?: HomeAssistant;
@@ -52,6 +52,6 @@ export class AdvancedCameraCardDiagnostics extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-diagnostics': AdvancedCameraCardDiagnostics;
+    'camera-card-ha-diagnostics': AdvancedCameraCardDiagnostics;
   }
 }

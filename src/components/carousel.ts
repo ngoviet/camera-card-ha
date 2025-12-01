@@ -22,7 +22,7 @@ export type EmblaCarouselPlugins = CreatePluginType<
   Record<string, unknown>
 >[];
 
-@customElement('advanced-camera-card-carousel')
+@customElement('camera-card-ha-carousel')
 export class AdvancedCameraCardCarousel extends LitElement {
   @property({ attribute: true, reflect: true })
   public direction: CarouselDirection = 'horizontal';
@@ -135,6 +135,6 @@ export class AdvancedCameraCardCarousel extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-carousel': AdvancedCameraCardCarousel;
+    'camera-card-ha-carousel': AdvancedCameraCardCarousel;
   }
 }

@@ -6,7 +6,7 @@ import { advancedCameraCardCustomActionsBaseSchema } from './base';
 export const INTERNAL_CALLBACK_ACTION = '__INTERNAL_CALLBACK_ACTION__';
 export const internalCallbackActionConfigSchema =
   advancedCameraCardCustomActionsBaseSchema.extend({
-    advanced_camera_card_action: z.literal(INTERNAL_CALLBACK_ACTION),
+    camera_card_ha_action: z.literal(INTERNAL_CALLBACK_ACTION),
 
     // The callback is expected to be called with a CardController API object.
     callback: z.function().args(z.any()).returns(z.promise(z.void())),

@@ -16,7 +16,7 @@ export function renderProgressIndicator(options?: {
   size?: AdvancedCameraCardProgressIndicatorSize;
 }): TemplateResult {
   return html`
-    <advanced-camera-card-progress-indicator
+    <camera-card-ha-progress-indicator
       class="${classMap(options?.classes ?? {})}"
       .size=${options?.size}
       ${options?.componentRef ? ref(options.componentRef) : ''}
@@ -24,11 +24,11 @@ export function renderProgressIndicator(options?: {
       .animated=${options?.cardWideConfig?.performance?.features
         .animated_progress_indicator ?? true}
     >
-    </advanced-camera-card-progress-indicator>
+    </camera-card-ha-progress-indicator>
   `;
 }
 
-@customElement('advanced-camera-card-progress-indicator')
+@customElement('camera-card-ha-progress-indicator')
 export class AdvancedCameraCardProgressIndicator extends LitElement {
   @property({ attribute: false })
   public message: string = '';
@@ -43,9 +43,9 @@ export class AdvancedCameraCardProgressIndicator extends LitElement {
     return html` <div class="message vertical">
       ${this.animated
         ? html`<ha-spinner indeterminate size="${this.size}"> </ha-spinner>`
-        : html`<advanced-camera-card-icon
+        : html`<camera-card-ha-icon
             .icon=${{ icon: 'mdi:timer-sand' }}
-          ></advanced-camera-card-icon>`}
+          ></camera-card-ha-icon>`}
       ${this.message ? html`<span>${this.message}</span>` : html``}
     </div>`;
   }
@@ -57,6 +57,6 @@ export class AdvancedCameraCardProgressIndicator extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-progress-indicator': AdvancedCameraCardProgressIndicator;
+    'camera-card-ha-progress-indicator': AdvancedCameraCardProgressIndicator;
   }
 }

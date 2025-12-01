@@ -22,7 +22,7 @@ import { stockActionSchema } from './stock/types';
 export type StatusBarActionConfig = z.infer<
   typeof advancedCameraCardCustomActionsBaseSchema
 > & {
-  advanced_camera_card_action: 'status_bar';
+  camera_card_ha_action: 'status_bar';
   status_bar_action: 'add' | 'remove' | 'reset';
   items?: StatusBarItem[];
 };
@@ -31,7 +31,7 @@ export const statusBarActionConfigSchema: z.ZodSchema<
   z.ZodTypeDef,
   unknown
 > = advancedCameraCardCustomActionsBaseSchema.extend({
-  advanced_camera_card_action: z.literal('status_bar'),
+  camera_card_ha_action: z.literal('status_bar'),
   status_bar_action: z.enum(['add', 'remove', 'reset']),
   items: z
     .lazy(() => statusBarItemSchema)
@@ -108,19 +108,19 @@ const statusBarItemElementsBaseSchema = statusBarItemBaseSchema.extend({
 });
 
 export const statusBarIconItemSchema = statusBarItemElementsBaseSchema.extend({
-  type: z.literal('custom:advanced-camera-card-status-bar-icon'),
+  type: z.literal('custom:camera-card-ha-status-bar-icon'),
   icon: z.string(),
 });
 export type StatusBarIcon = z.infer<typeof statusBarIconItemSchema>;
 
 export const statusBarImageItemSchema = statusBarItemElementsBaseSchema.extend({
-  type: z.literal('custom:advanced-camera-card-status-bar-image'),
+  type: z.literal('custom:camera-card-ha-status-bar-image'),
   image: z.string(),
 });
 export type StatusBarImage = z.infer<typeof statusBarImageItemSchema>;
 
 export const statusBarStringItemSchema = statusBarItemElementsBaseSchema.extend({
-  type: z.literal('custom:advanced-camera-card-status-bar-string'),
+  type: z.literal('custom:camera-card-ha-status-bar-string'),
   string: z.string(),
 });
 export type StatusBarString = z.infer<typeof statusBarStringItemSchema>;

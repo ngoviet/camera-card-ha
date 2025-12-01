@@ -66,7 +66,7 @@ export const resolveImageMode = (options?: {
 /**
  * A media player to wrap an image that updates continuously.
  */
-@customElement('advanced-camera-card-image-updating-player')
+@customElement('camera-card-ha-image-updating-player')
 export class AdvancedCameraCardImageUpdatingPlayer
   extends LitElement
   implements MediaPlayer
@@ -386,6 +386,6 @@ export class AdvancedCameraCardImageUpdatingPlayer
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-image-updating-player': AdvancedCameraCardImageUpdatingPlayer;
+    'camera-card-ha-image-updating-player': AdvancedCameraCardImageUpdatingPlayer;
   }
 }

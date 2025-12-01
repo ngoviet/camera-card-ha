@@ -1,5 +1,5 @@
 {
-  "name": "advanced-camera-card",
+  "name": "camera-card-ha",
   "version": "0.0.0-dev",
   "description": "Camera Card HA for Home Assistant",
   "keywords": [
@@ -13,7 +13,7 @@
     "lovelace"
   ],
   "type": "module",
-  "module": "advanced-camera-card.js",
+  "module": "camera-card-ha.js",
   "repository": "github:ngoviet/camera-card-ha",
   "author": "ngoviet <ngoviet@users.noreply.github.com>",
   "license": "MIT",

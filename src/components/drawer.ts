@@ -21,7 +21,7 @@ export interface DrawerIcons {
   closed?: string;
 }
 
-@customElement('advanced-camera-card-drawer')
+@customElement('camera-card-ha-drawer')
 export class AdvancedCameraCardDrawer extends LitElement {
   @property({ attribute: true, reflect: true })
   public location: 'left' | 'right' = 'left';
@@ -113,7 +113,7 @@ export class AdvancedCameraCardDrawer extends LitElement {
                   this.open = !this.open;
                 }}
               >
-                <advanced-camera-card-icon
+                <camera-card-ha-icon
                   class="control"
                   .icon="${{
                     icon: this.open
@@ -130,7 +130,7 @@ export class AdvancedCameraCardDrawer extends LitElement {
                     }
                   }}
                 >
-                </advanced-camera-card-icon>
+                </camera-card-ha-icon>
               </div>
             `
           : ''}
@@ -146,7 +146,7 @@ export class AdvancedCameraCardDrawer extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-drawer': AdvancedCameraCardDrawer;
+    'camera-card-ha-drawer': AdvancedCameraCardDrawer;
     'side-drawer': SideDrawer;
   }
 }

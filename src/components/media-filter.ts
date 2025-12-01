@@ -27,7 +27,7 @@ import './date-picker.js';
 import { AdvancedCameraCardSelect } from './select';
 import './select.js';
 
-@customElement('advanced-camera-card-media-filter')
+@customElement('camera-card-ha-media-filter')
 class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -42,8 +42,8 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
   public cardWideConfig?: CardWideConfig;
 
   static elementDefinitions = {
-    'advanced-camera-card-select': AdvancedCameraCardSelect,
-    'advanced-camera-card-date-picker': AdvancedCameraCardDatePicker,
+    'camera-card-ha-select': AdvancedCameraCardSelect,
+    'camera-card-ha-date-picker': AdvancedCameraCardDatePicker,
   };
 
   protected _mediaFilterController = new MediaFilterController(this);
@@ -132,7 +132,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
     const tagsOptions = this._mediaFilterController.getTagsOptions();
     const whereOptions = this._mediaFilterController.getWhereOptions();
 
-    return html` <advanced-camera-card-select
+    return html` <camera-card-ha-select
         ${ref(this._refMediaType)}
         label=${localize('media_filter.media_type')}
         placeholder=${localize('media_filter.select_media_type')}
@@ -140,9 +140,9 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
         .initialValue=${defaults?.mediaType}
         @advanced-camera-card:select:change=${() => valueChange()}
       >
-      </advanced-camera-card-select>
+      </camera-card-ha-select>
       <div class="when">
-        <advanced-camera-card-select
+        <camera-card-ha-select
           ${ref(this._refWhen)}
           .label=${localize('media_filter.when')}
           placeholder=${localize('media_filter.select_when')}
@@ -151,8 +151,8 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
           clearable
           @advanced-camera-card:select:change=${() => whenChange('selected')}
         >
-        </advanced-camera-card-select>
-        <advanced-camera-card-date-picker
+        </camera-card-ha-select>
+        <camera-card-ha-date-picker
           class="${classMap({
             selected: !!this._refWhenFrom.value?.value,
             hidden: this._refWhen.value?.value !== MediaFilterCoreWhen.Custom,
@@ -161,8 +161,8 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
           .icon=${'mdi:calendar-arrow-right'}
           @advanced-camera-card:date-picker:change=${() => whenChange('custom')}
         >
-        </advanced-camera-card-date-picker>
-        <advanced-camera-card-date-picker
+        </camera-card-ha-date-picker>
+        <camera-card-ha-date-picker
           class="${classMap({
             selected: !!this._refWhenTo.value?.value,
             hidden: this._refWhen.value?.value !== MediaFilterCoreWhen.Custom,
@@ -171,9 +171,9 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
           .icon=${'mdi:calendar-arrow-left'}
           @advanced-camera-card:date-picker:change=${() => whenChange('custom')}
         >
-        </advanced-camera-card-date-picker>
+        </camera-card-ha-date-picker>
       </div>
-      <advanced-camera-card-select
+      <camera-card-ha-select
         ${ref(this._refCamera)}
         .label=${localize('media_filter.camera')}
         placeholder=${localize('media_filter.select_camera')}
@@ -183,9 +183,9 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
         multiple
         @advanced-camera-card:select:change=${() => valueChange()}
       >
-      </advanced-camera-card-select>
+      </camera-card-ha-select>
       ${controls.events && whatOptions.length
-        ? html` <advanced-camera-card-select
+        ? html` <camera-card-ha-select
             ${ref(this._refWhat)}
             label=${localize('media_filter.what')}
             placeholder=${localize('media_filter.select_what')}
@@ -195,10 +195,10 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
             .initialValue=${defaults?.what}
             @advanced-camera-card:select:change=${() => valueChange()}
           >
-          </advanced-camera-card-select>`
+          </camera-card-ha-select>`
         : ''}
       ${controls.events && tagsOptions.length
-        ? html` <advanced-camera-card-select
+        ? html` <camera-card-ha-select
             ${ref(this._refTags)}
             label=${localize('media_filter.tag')}
             placeholder=${localize('media_filter.select_tag')}
@@ -208,10 +208,10 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
             .initialValue=${defaults?.tags}
             @advanced-camera-card:select:change=${() => valueChange()}
           >
-          </advanced-camera-card-select>`
+          </camera-card-ha-select>`
         : ''}
       ${controls.events && whereOptions.length
-        ? html` <advanced-camera-card-select
+        ? html` <camera-card-ha-select
             ${ref(this._refWhere)}
             label=${localize('media_filter.where')}
             placeholder=${localize('media_filter.select_where')}
@@ -221,11 +221,11 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
             .initialValue=${defaults?.where}
             @advanced-camera-card:select:change=${() => valueChange()}
           >
-          </advanced-camera-card-select>`
+          </camera-card-ha-select>`
         : ''}
       ${controls.favorites
         ? html`
-            <advanced-camera-card-select
+            <camera-card-ha-select
               ${ref(this._refFavorite)}
               label=${localize('media_filter.favorite')}
               placeholder=${localize('media_filter.select_favorite')}
@@ -234,7 +234,7 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
               clearable
               @advanced-camera-card:select:change=${() => valueChange()}
             >
-            </advanced-camera-card-select>
+            </camera-card-ha-select>
           `
         : ''}`;
   }
@@ -246,6 +246,6 @@ class AdvancedCameraCardMediaFilter extends ScopedRegistryHost(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-media-filter': AdvancedCameraCardMediaFilter;
+    'camera-card-ha-media-filter': AdvancedCameraCardMediaFilter;
   }
 }

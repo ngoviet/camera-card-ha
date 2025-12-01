@@ -118,7 +118,7 @@ export function isValidMediaLoadedInfo(info: MediaLoadedInfo): boolean {
 // Facilitates correct typing of event handlers.
 export interface AdvancedCameraCardMediaLoadedEventTarget extends EventTarget {
   addEventListener(
-    event: 'advanced-camera-card:media:loaded',
+    event: 'camera-card-ha:media:loaded',
     listener: (
       this: AdvancedCameraCardMediaLoadedEventTarget,
       ev: CustomEvent<MediaLoadedInfo>,
@@ -126,7 +126,7 @@ export interface AdvancedCameraCardMediaLoadedEventTarget extends EventTarget {
     options?: AddEventListenerOptions | boolean,
   ): void;
   addEventListener(
-    event: 'advanced-camera-card:media:unloaded',
+    event: 'camera-card-ha:media:unloaded',
     listener: (this: AdvancedCameraCardMediaLoadedEventTarget, ev: CustomEvent) => void,
     options?: AddEventListenerOptions | boolean,
   ): void;
@@ -136,7 +136,7 @@ export interface AdvancedCameraCardMediaLoadedEventTarget extends EventTarget {
     options?: AddEventListenerOptions | boolean,
   ): void;
   removeEventListener(
-    event: 'advanced-camera-card:media:loaded',
+    event: 'camera-card-ha:media:loaded',
     listener: (
       this: AdvancedCameraCardMediaLoadedEventTarget,
       ev: CustomEvent<MediaLoadedInfo>,
@@ -144,7 +144,7 @@ export interface AdvancedCameraCardMediaLoadedEventTarget extends EventTarget {
     options?: boolean | EventListenerOptions,
   ): void;
   removeEventListener(
-    event: 'advanced-camera-card:media:unloaded',
+    event: 'camera-card-ha:media:unloaded',
     listener: (this: AdvancedCameraCardMediaLoadedEventTarget, ev: CustomEvent) => void,
     options?: boolean | EventListenerOptions,
   ): void;

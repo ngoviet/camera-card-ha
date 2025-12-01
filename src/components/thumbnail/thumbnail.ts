@@ -18,7 +18,7 @@ import './details.js';
 import './feature/feature.js';
 import './feature/thumbnail.js';
 
-@customElement('advanced-camera-card-thumbnail')
+@customElement('camera-card-ha-thumbnail')
 export class AdvancedCameraCardThumbnail extends LitElement {
   // Performance: During timeline scrubbing, hass may be updated continuously.
   // As it is not needed for the thumbnail rendering itself, it does not trigger
@@ -95,15 +95,15 @@ export class AdvancedCameraCardThumbnail extends LitElement {
       mediaCapabilities?.canDownload;
 
     return html`
-      <advanced-camera-card-thumbnail-feature
+      <camera-card-ha-thumbnail-feature
         .cameraManager=${this.cameraManager}
         .hasDetails=${this.details}
         .hass=${this.hass}
         .item=${this.item}
       >
-      </advanced-camera-card-thumbnail-feature>
+      </camera-card-ha-thumbnail-feature>
       ${shouldShowFavoriteControl
-        ? html` <advanced-camera-card-icon
+        ? html` <camera-card-ha-icon
             class="${classMap(starClasses)}"
             title=${localize('thumbnail.retain_indefinitely')}
             .icon=${{ icon: this.item.isFavorite() ? 'mdi:star' : 'mdi:star-outline' }}
@@ -122,18 +122,18 @@ export class AdvancedCameraCardThumbnail extends LitElement {
                 this.requestUpdate();
               }
             }}
-          /></advanced-camera-card-icon>`
+          /></camera-card-ha-icon>`
         : ``}
       ${this.details
-        ? html`<advanced-camera-card-thumbnail-details
+        ? html`<camera-card-ha-thumbnail-details
             .hass=${this.hass}
             .item=${this.item ?? undefined}
             .cameraManager=${this.cameraManager}
             .seek=${this.seek}
-          ></advanced-camera-card-thumbnail-details>`
+          ></camera-card-ha-thumbnail-details>`
         : ''}
       ${shouldShowTimelineControl
-        ? html`<advanced-camera-card-icon
+        ? html`<camera-card-ha-icon
             class="timeline"
             .icon=${{ icon: 'mdi:target' }}
             title=${localize('thumbnail.timeline')}
@@ -153,10 +153,10 @@ export class AdvancedCameraCardThumbnail extends LitElement {
                 modifiers: [new RemoveContextViewModifier(['timeline'])],
               });
             }}
-          ></advanced-camera-card-icon>`
+          ></camera-card-ha-icon>`
         : ''}
       ${shouldShowDownloadControl
-        ? html` <advanced-camera-card-icon
+        ? html` <camera-card-ha-icon
             class="download"
             .icon=${{ icon: 'mdi:download' }}
             title=${localize('thumbnail.download')}
@@ -170,7 +170,7 @@ export class AdvancedCameraCardThumbnail extends LitElement {
                 }
               }
             }}
-          ></advanced-camera-card-icon>`
+          ></camera-card-ha-icon>`
         : ``}
     `;
   }
@@ -182,6 +182,6 @@ export class AdvancedCameraCardThumbnail extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-thumbnail': AdvancedCameraCardThumbnail;
+    'camera-card-ha-thumbnail': AdvancedCameraCardThumbnail;
   }
 }

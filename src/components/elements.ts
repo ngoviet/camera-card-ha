@@ -56,7 +56,7 @@ import { fireAdvancedCameraCardEvent } from '../utils/fire-advanced-camera-card-
  * correctly. These custom elements 'render' by firing events that are caught by
  * the card to call for inclusion/exclusion of the menu icon in question.
  *
- * One major complexity here is that the top <advanced-camera-card-elements> element
+ * One major complexity here is that the top <camera-card-ha-elements> element
  * will not necessarily know when a menu icon is no longer rendered because of a
  * conditional that no-longer evaluates to true. As such, it cannot know when to
  * signal for the menu icon removal. Furthermore, the menu icon element itself
@@ -64,7 +64,7 @@ import { fireAdvancedCameraCardEvent } from '../utils/fire-advanced-camera-card-
  * so normal event propagation at that point will not work. Instead, we must
  * catch the menu icon _addition_ and register the eventhandler for the removal
  * directly on the child (which will have no parent at time of calling). That
- * then triggers <advanced-camera-card-elements> to re-dispatch a removal event for
+ * then triggers <camera-card-ha-elements> to re-dispatch a removal event for
  * upper layers to handle correctly.
  */
 
@@ -75,7 +75,7 @@ interface HuiConditionalElement extends HTMLElement {
 
 // A small wrapper around a HA conditional element used to render a set of
 // picture elements.
-@customElement('advanced-camera-card-elements-core')
+@customElement('camera-card-ha-elements-core')
 export class AdvancedCameraCardElementsCore extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -190,7 +190,7 @@ export class AdvancedCameraCardElementsCore extends LitElement {
   }
 }
 
-@customElement('advanced-camera-card-elements')
+@customElement('camera-card-ha-elements')
 export class AdvancedCameraCardElements extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -279,12 +279,12 @@ export class AdvancedCameraCardElements extends LitElement {
   }
 
   protected render(): TemplateResult {
-    return html`<advanced-camera-card-elements-core
+    return html`<camera-card-ha-elements-core
       .conditionStateManager=${this.conditionStateManager}
       .hass=${this.hass}
       .elements=${this.elements}
     >
-    </advanced-camera-card-elements-core>`;
+    </camera-card-ha-elements-core>`;
   }
 
   static get styles(): CSSResultGroup {
@@ -297,7 +297,7 @@ export class AdvancedCameraCardElements extends LitElement {
  * overlays in particular views). This is the Advanced Camera Card equivalent to
  * the HA conditional card.
  */
-@customElement('advanced-camera-card-conditional')
+@customElement('camera-card-ha-conditional')
 export class AdvancedCameraCardElementsConditional extends LitElement {
   protected _config?: AdvancedCameraCardConditional;
   protected _conditionManager: ConditionsManager | null = null;
@@ -359,11 +359,11 @@ export class AdvancedCameraCardElementsConditional extends LitElement {
 
   protected render(): TemplateResult | void {
     if (this._conditionManager?.getEvaluation()?.result) {
-      return html` <advanced-camera-card-elements-core
+      return html` <camera-card-ha-elements-core
         .hass=${this.hass}
         .elements=${this._config?.elements}
       >
-      </advanced-camera-card-elements-core>`;
+      </camera-card-ha-elements-core>`;
     }
   }
 }
@@ -415,16 +415,16 @@ export class AdvancedCameraCardElementsBaseMenuItem<
   }
 }
 
-@customElement('advanced-camera-card-menu-icon')
+@customElement('camera-card-ha-menu-icon')
 export class AdvancedCameraCardElementsMenuIcon extends AdvancedCameraCardElementsBaseMenuItem<MenuIcon> {}
 
-@customElement('advanced-camera-card-menu-state-icon')
+@customElement('camera-card-ha-menu-state-icon')
 export class AdvancedCameraCardElementsMenuStateIcon extends AdvancedCameraCardElementsBaseMenuItem<MenuStateIcon> {}
 
-@customElement('advanced-camera-card-menu-submenu')
+@customElement('camera-card-ha-menu-submenu')
 export class AdvancedCameraCardElementsMenuSubmenu extends AdvancedCameraCardElementsBaseMenuItem<MenuSubmenu> {}
 
-@customElement('advanced-camera-card-menu-submenu-select')
+@customElement('camera-card-ha-menu-submenu-select')
 export class AdvancedCameraCardElementsMenuSubmenuSelect extends AdvancedCameraCardElementsBaseMenuItem<MenuSubmenuSelect> {}
 
 export class AdvancedCameraCardElementsBaseStatusBarItem<
@@ -435,28 +435,28 @@ export class AdvancedCameraCardElementsBaseStatusBarItem<
   }
 }
 
-@customElement('advanced-camera-card-status-bar-icon')
+@customElement('camera-card-ha-status-bar-icon')
 export class AdvancedCameraCardElementsStatusBarIcon extends AdvancedCameraCardElementsBaseStatusBarItem<StatusBarIcon> {}
 
-@customElement('advanced-camera-card-status-bar-image')
+@customElement('camera-card-ha-status-bar-image')
 export class AdvancedCameraCardElementsStatusBarImage extends AdvancedCameraCardElementsBaseStatusBarItem<StatusBarImage> {}
 
-@customElement('advanced-camera-card-status-bar-string')
+@customElement('camera-card-ha-status-bar-string')
 export class AdvancedCameraCardElementsStatusBarString extends AdvancedCameraCardElementsBaseStatusBarItem<StatusBarString> {}
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-conditional': AdvancedCameraCardElementsConditional;
-    'advanced-camera-card-elements': AdvancedCameraCardElements;
-    'advanced-camera-card-elements-core': AdvancedCameraCardElementsCore;
+    'camera-card-ha-conditional': AdvancedCameraCardElementsConditional;
+    'camera-card-ha-elements': AdvancedCameraCardElements;
+    'camera-card-ha-elements-core': AdvancedCameraCardElementsCore;
 
-    'advanced-camera-card-menu-icon': AdvancedCameraCardElementsMenuIcon;
-    'advanced-camera-card-menu-state-icon': AdvancedCameraCardElementsMenuStateIcon;
-    'advanced-camera-card-menu-submenu': AdvancedCameraCardElementsMenuSubmenu;
-    'advanced-camera-card-menu-submenu-select': AdvancedCameraCardElementsMenuSubmenuSelect;
+    'camera-card-ha-menu-icon': AdvancedCameraCardElementsMenuIcon;
+    'camera-card-ha-menu-state-icon': AdvancedCameraCardElementsMenuStateIcon;
+    'camera-card-ha-menu-submenu': AdvancedCameraCardElementsMenuSubmenu;
+    'camera-card-ha-menu-submenu-select': AdvancedCameraCardElementsMenuSubmenuSelect;
 
-    'advanced-camera-card-status-bar-icon': AdvancedCameraCardElementsStatusBarIcon;
-    'advanced-camera-card-status-bar-image': AdvancedCameraCardElementsStatusBarImage;
-    'advanced-camera-card-status-bar-string': AdvancedCameraCardElementsStatusBarString;
+    'camera-card-ha-status-bar-icon': AdvancedCameraCardElementsStatusBarIcon;
+    'camera-card-ha-status-bar-image': AdvancedCameraCardElementsStatusBarImage;
+    'camera-card-ha-status-bar-string': AdvancedCameraCardElementsStatusBarString;
   }
 }

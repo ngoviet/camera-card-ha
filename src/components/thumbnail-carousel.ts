@@ -32,7 +32,7 @@ export interface ThumbnailMediaSelect {
   media: ViewMedia;
 }
 
-@customElement('advanced-camera-card-thumbnail-carousel')
+@customElement('camera-card-ha-thumbnail-carousel')
 export class AdvancedCameraCardThumbnailCarousel extends LitElement {
   @property({ attribute: false })
   public hass?: HomeAssistant;
@@ -155,7 +155,7 @@ export class AdvancedCameraCardThumbnailCarousel extends LitElement {
       'slide-selected': selected,
     };
 
-    return html` <advanced-camera-card-thumbnail
+    return html` <camera-card-ha-thumbnail
       class="${classMap(classes)}"
       .cameraManager=${this.cameraManager}
       .hass=${this.hass}
@@ -173,7 +173,7 @@ export class AdvancedCameraCardThumbnailCarousel extends LitElement {
       ?show_download_control=${this.config?.show_download_control}
       @click=${(ev: Event) => clickCallback(item, ev)}
     >
-    </advanced-camera-card-thumbnail>`;
+    </camera-card-ha-thumbnail>`;
   }
 
   protected _renderThumbnails(): TemplateResult[] {
@@ -219,13 +219,13 @@ export class AdvancedCameraCardThumbnailCarousel extends LitElement {
       return;
     }
 
-    return html`<advanced-camera-card-carousel
+    return html`<camera-card-ha-carousel
       direction=${direction}
       .selected=${this._getSelectedSlide() ?? 0}
       .dragFree=${true}
     >
       ${this._thumbnails}
-    </advanced-camera-card-carousel>`;
+    </camera-card-ha-carousel>`;
   }
 
   static get styles(): CSSResultGroup {
@@ -235,6 +235,6 @@ export class AdvancedCameraCardThumbnailCarousel extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-thumbnail-carousel': AdvancedCameraCardThumbnailCarousel;
+    'camera-card-ha-thumbnail-carousel': AdvancedCameraCardThumbnailCarousel;
   }
 }

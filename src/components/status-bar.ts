@@ -16,7 +16,7 @@ import statusStyle from '../scss/status.scss';
 import { hasAction } from '../utils/action';
 import './icon.js';
 
-@customElement('advanced-camera-card-status-bar')
+@customElement('camera-card-ha-status-bar')
 export class AdvancedCameraCardStatusBar extends LitElement {
   protected _controller = new StatusBarController(this);
 
@@ -96,7 +96,7 @@ export class AdvancedCameraCardStatusBar extends LitElement {
             hasDoubleClick: hasAction(item.actions?.double_tap_action),
           });
 
-          if (item.type === 'custom:advanced-camera-card-status-bar-string') {
+          if (item.type === 'custom:camera-card-ha-status-bar-string') {
             return html`<div
               .actionHandler=${handler}
               class="${classes}"
@@ -104,14 +104,14 @@ export class AdvancedCameraCardStatusBar extends LitElement {
             >
               ${item.string}
             </div>`;
-          } else if (item.type === 'custom:advanced-camera-card-status-bar-icon') {
-            return html`<advanced-camera-card-icon
+          } else if (item.type === 'custom:camera-card-ha-status-bar-icon') {
+            return html`<camera-card-ha-icon
               .actionHandler=${handler}
               .icon=${{ icon: item.icon }}
               class="${classes}"
               @action=${(ev) => this._controller.actionHandler(ev, item.actions)}
-            ></advanced-camera-card-icon>`;
-          } else if (item.type === 'custom:advanced-camera-card-status-bar-image') {
+            ></camera-card-ha-icon>`;
+          } else if (item.type === 'custom:camera-card-ha-status-bar-image') {
             return html`<img
               .actionHandler=${handler}
               class="${classes}"
@@ -131,6 +131,6 @@ export class AdvancedCameraCardStatusBar extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'advanced-camera-card-status-bar': AdvancedCameraCardStatusBar;
+    'camera-card-ha-status-bar': AdvancedCameraCardStatusBar;
   }
 }
