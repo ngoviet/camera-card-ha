@@ -54,6 +54,8 @@ const plugins = [
     sourceMap: dev,
     inlineSources: dev,
     exclude: ['dist/**', 'tests/**/*.test.ts'],
+    tsconfig: 'tsconfig.json',
+    rootDir: process.cwd(),
   }),
   json({ exclude: ['package.json', 'node_modules/**/package.json'] }),
   replace({
