@@ -95,17 +95,18 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
 
 ### ⚠️ Important: HACS Indexing Time
 
-**HACS cần thời gian để index repository mới (30 phút - 24 giờ).** Đây là nguyên nhân phổ biến nhất khi nút "OPEN HACS REPOSITORY" chưa hoạt động.
+**HACS cần thời gian để index repository mới (6 giờ - 24 giờ).** HACS cập nhật dữ liệu mỗi 6 giờ sau khi khởi động Home Assistant. Đây là nguyên nhân phổ biến nhất khi nút "OPEN HACS REPOSITORY" hoặc thêm repository thủ công vẫn báo "not found".
 
 ### Common Solutions:
 
 1. **Repository is Public** ✅
    - Verified: https://github.com/ngoviet/camera-card-ha is public
 
-2. **Wait for HACS indexing** (30 minutes - 24 hours):
-   - HACS indexes repositories periodically, not instantly
+2. **Wait for HACS indexing** (6 hours - 24 hours):
+   - HACS updates data every 6 hours after Home Assistant startup
    - Repository was created on 11/28/2025, HACS may need more time to index
-   - **Most common solution: Wait 30-60 minutes and try again**
+   - **Most common solution: Wait 6-24 hours and try again**
+   - If you just restarted Home Assistant, wait 6 hours for next HACS update cycle
 
 3. **Clear HACS cache** (Recommended):
    - In Home Assistant: **HACS** → **Settings** (⚙️ icon)
@@ -128,6 +129,12 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
    - ✅ Release v0.1.6 with assets (157 files)
    - ✅ Valid `hacs.json` file
    - ✅ Main file: `advanced-camera-card.js` exists in release
+
+6. **Submit to HACS Default Repositories** (Optional but recommended):
+   - If repository still not found after 24 hours, consider submitting to HACS default list
+   - Visit: https://github.com/hacs/default
+   - Follow the submission process to add repository to HACS default repositories
+   - This will make repository available immediately without waiting for indexing
 
 6. **Check HACS logs**:
    - In Home Assistant: **Developer Tools** → **Logs**
