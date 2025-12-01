@@ -1,5 +1,5 @@
 import { orderBy } from 'lodash-es';
-import { sortedUniqBy } from '../utils/basic';
+import { sortedUniqBy } from '../utils/basic.js';
 import { DateRange, MemoryRangeSet } from './range';
 import { RecordingSegment } from './types';
 

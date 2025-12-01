@@ -1,4 +1,4 @@
-import { clamp } from '../../../utils/basic';
+import { clamp } from '../../../utils/basic.js';
 import {
   PartialZoomSettings,
   ZOOM_DEFAULT_PAN_X,
