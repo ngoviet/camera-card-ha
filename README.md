@@ -21,11 +21,11 @@
 
 <div align="center" style="margin: 30px 0;">
 
-<img src="https://raw.githubusercontent.com/ngoviet/camera-card-ha/main/docs/images/advanced-camera-card.png" alt="Advanced Camera Card" width="500px">
+<img src="https://raw.githubusercontent.com/ngoviet/camera-card-ha/main/docs/images/advanced-camera-card.png" alt="Camera Card HA" width="500px">
 
 </div>
 
-# Advanced Camera Card
+# Camera Card HA
 
 Formerly known as: `Frigate Card`
 
@@ -78,7 +78,7 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
    - **Repository**: `ngoviet/camera-card-ha`
    - **Category**: `Frontend` (Lovelace)
 4. Click **Add**
-5. Go back to **Frontend** and search for **Advanced Camera Card**
+5. Go back to **Frontend** and search for **Camera Card HA**
 6. Click **Download**
 
 **Option 2: Use HACS Button**
@@ -120,7 +120,7 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
    - **Repository**: `ngoviet/camera-card-ha` (or full URL: `https://github.com/ngoviet/camera-card-ha`)
    - **Category**: `Frontend` (Lovelace)
    - Click **Add**
-   - Wait a moment, then go to **Frontend** and search for **Advanced Camera Card**
+   - Wait a moment, then go to **Frontend** and search for **Camera Card HA**
 
 5. **Verify HACS requirements** (All met ✅):
    - ✅ Repository is public

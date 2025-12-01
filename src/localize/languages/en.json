@@ -4,8 +4,8 @@
     "confirmation": "Are you sure you want to perform this action"
   },
   "common": {
-    "advanced_camera_card": "Advanced Camera Card",
-    "advanced_camera_card_description": "An Advanced Camera Card",
+    "advanced_camera_card": "Camera Card HA",
+    "advanced_camera_card_description": "A Camera Card HA",
     "folder": "Folder",
     "live": "Live",
     "no_folder": "No folder to display",

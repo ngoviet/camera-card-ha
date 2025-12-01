@@ -7,7 +7,7 @@
 
 - **Repository**: `ngoviet/camera-card-ha`
 - **Category**: `plugin` (Frontend/Lovelace)
-- **Name**: Advanced Camera Card
+- **Name**: Camera Card HA
 - **Description**: A comprehensive camera card for Home Assistant
 - **Home Assistant**: 2022.3.0
 - **HACS**: 1.6.0

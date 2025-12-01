@@ -60,7 +60,7 @@ import { getReleaseVersion } from './utils/diagnostics';
 // ***************************************************************************
 
 console.info(
-  `%c 📷 Advanced Camera Card %c ${getReleaseVersion()} `,
+  `%c 📷 Camera Card HA %c ${getReleaseVersion()} `,
   'padding: 3px; color: black; background: pink;',
   'padding: 3px; color: black; background: white;',
 );

@@ -1,7 +1,7 @@
 ## Repository Information
 - Repository: ngoviet/camera-card-ha
 - Category: plugin (Frontend/Lovelace)
-- Name: Advanced Camera Card
+- Name: Camera Card HA
 - Description: A comprehensive camera card for Home Assistant
 
 ## Requirements Met
