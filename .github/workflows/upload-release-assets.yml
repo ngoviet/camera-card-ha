@@ -29,11 +29,16 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn install --immutable || {
-            echo "Lockfile mismatch detected. Updating lockfile..."
+          set +e
+          yarn install --immutable
+          if [ $? -ne 0 ]; then
+            echo "Lockfile mismatch detected. Removing lockfile and reinstalling..."
+            rm -f yarn.lock
+            touch yarn.lock
             yarn install --mode=update-lockfile
             yarn install
-          }
+          fi
+          set -e
 
       - name: Build the files
         run: yarn run build
