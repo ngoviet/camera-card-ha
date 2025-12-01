@@ -28,18 +28,7 @@ jobs:
         uses: volta-cli/action@v4
 
       - name: Install dependencies
-        run: |
-          set +e
-          yarn install --immutable
-          if [ $? -ne 0 ]; then
-            echo "Lockfile issue detected, removing and recreating lockfile..."
-            rm -f yarn.lock
-            touch yarn.lock
-            yarn install --mode=update-lockfile || true
-            echo "Installing with updated lockfile..."
-            yarn install
-          fi
-          set -e
+        run: yarn install --immutable
 
       - name: Build the files
         run: yarn run build
