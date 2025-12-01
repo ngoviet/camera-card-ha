@@ -93,22 +93,27 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
 
 **Troubleshooting**: If you get "Repository not found" error:
 
+### ⚠️ Important: HACS Indexing Time
+
+**HACS cần thời gian để index repository mới (30 phút - 24 giờ).** Đây là nguyên nhân phổ biến nhất khi nút "OPEN HACS REPOSITORY" chưa hoạt động.
+
 ### Common Solutions:
 
 1. **Repository is Public** ✅
    - Verified: https://github.com/ngoviet/camera-card-ha is public
 
-2. **Wait for HACS indexing** (5-30 minutes):
-   - HACS needs time to index new repositories
-   - This is the most common cause - **please wait 10-30 minutes** after repository creation
+2. **Wait for HACS indexing** (30 minutes - 24 hours):
    - HACS indexes repositories periodically, not instantly
+   - Repository was created on 11/28/2025, HACS may need more time to index
+   - **Most common solution: Wait 30-60 minutes and try again**
 
-3. **Clear HACS cache**:
+3. **Clear HACS cache** (Recommended):
    - In Home Assistant: **HACS** → **Settings** (⚙️ icon)
    - Click **Clear HACS cache**
    - Restart Home Assistant if needed
+   - Try the button again after restart
 
-4. **Manual repository add** (Recommended if button doesn't work):
+4. **Manual repository add** (Works immediately while waiting for indexing):
    - In HACS: **Frontend** → **Three dots (⋮)** → **Custom repositories**
    - Click **+ ADD**
    - **Repository**: `ngoviet/camera-card-ha` (or full URL: `https://github.com/ngoviet/camera-card-ha`)
@@ -116,10 +121,13 @@ A comprehensive camera card for Home Assistant - **Optimized for performance** w
    - Click **Add**
    - Wait a moment, then go to **Frontend** and search for **Advanced Camera Card**
 
-5. **Verify HACS requirements**:
-   - Ensure HACS is updated to latest version
-   - Check: https://github.com/ngoviet/camera-card-ha/releases for available releases
-   - Repository has valid `hacs.json` file ✅
+5. **Verify HACS requirements** (All met ✅):
+   - ✅ Repository is public
+   - ✅ Issues enabled
+   - ✅ Topics added (hacs, home-assistant, lovelace, etc.)
+   - ✅ Release v0.1.6 with assets (157 files)
+   - ✅ Valid `hacs.json` file
+   - ✅ Main file: `advanced-camera-card.js` exists in release
 
 6. **Check HACS logs**:
    - In Home Assistant: **Developer Tools** → **Logs**
