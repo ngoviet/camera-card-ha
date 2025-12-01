@@ -45,6 +45,7 @@ const plugins = [
   image({ exclude: '**/*.svg' }),
   nodeResolve({
     browser: true,
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   }),
   commonjs({
     include: 'node_modules/**',
