@@ -45,20 +45,15 @@ const plugins = [
   image({ exclude: '**/*.svg' }),
   nodeResolve({
     browser: true,
-    preferBuiltins: false,
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    rootDir: process.cwd(),
+  }),
+  commonjs({
+    include: 'node_modules/**',
+    sourceMap: false,
   }),
   typescript({
     sourceMap: dev,
     inlineSources: dev,
     exclude: ['dist/**', 'tests/**/*.test.ts'],
-    tsconfig: 'tsconfig.json',
-    resolveJsonModule: true,
-  }),
-  commonjs({
-    include: 'node_modules/**',
-    sourceMap: false,
   }),
   json({ exclude: ['package.json', 'node_modules/**/package.json'] }),
   replace({
