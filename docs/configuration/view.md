@@ -87,7 +87,7 @@ Configure the theming/colors applied to the card.
 | `dark`        | Use a dark theme that is identical to the HA dark theme.                                                                                      |
 | `ha`          | Uses HA-prescribed theming. Respects HA choice of dark or light colors.                                                                       |
 | `light`       | Use a light theme that is similar to the HA light theme (there are some differences if you do not use the standard choices of primary color). |
-| `traditional` | A theme based on the default Advanced Camera Card theme before full theming support was added. Respects HA color theme choices.               |
+| `traditional` | A theme based on the default Camera Card HA theme before full theming support was added. Respects HA color theme choices.               |
 
 ### `overrides`
 
@@ -95,7 +95,7 @@ Allows overriding of any CSS value, can be used to tweak theming parameters.
 
 | Option                                                                                                                                                                                                                                                          | Description                                            |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Any CSS key. Overriding the [Advanced Camera Card](https://github.com/ngoviet/camera-card-ha/tree/main/src/scss/themes/base.scss) CSS variables allows changing individual theming parameters, e.g. `--advanced-camera-card-menu-override-background` | Any CSS value, e.g. `red` or `rgba(10, 11, 12, 0.64)`. |
+| Any CSS key. Overriding the [Camera Card HA](https://github.com/ngoviet/camera-card-ha/tree/main/src/scss/themes/base.scss) CSS variables allows changing individual theming parameters, e.g. `--camera-card-ha-menu-override-background` | Any CSS value, e.g. `red` or `rgba(10, 11, 12, 0.64)`. |
 
 ## `triggers`
 

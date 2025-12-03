@@ -1,7 +1,7 @@
 @use './button.scss';
 
 ha-icon-button {
-  // Icons in the menu are expected to follow Advanced Camera Card theming
+  // Icons in the menu are expected to follow Camera Card HA theming
   // unless they are active (in which case we want to take advantage of the
   // whatever styling is appropriate, e.g. light icon partially lit).
   --state-inactive-color: var(--advanced-camera-card-button-color);

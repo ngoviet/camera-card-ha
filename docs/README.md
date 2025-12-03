@@ -7,7 +7,7 @@
 - Find the card in HACS:
 
 ```
-Home Assistant > HACS > Frontend > "Explore & Add Integrations" > Advanced Camera Card
+Home Assistant > HACS > Frontend > "Explore & Add Integrations" > Camera Card HA
 ```
 
 - Click `Download this repository with HACS`.
@@ -23,14 +23,14 @@ See [Advanced Installation](advanced-installation.md) for other installation res
 ```
 
 - Click `+ Add Card` shown on the bottom of the screen
-- Choose `Custom: Advanced Camera Card` from the list
+- Choose `Custom: Camera Card HA` from the list
 
 ## Initial configuration
 
 ### Minimal configuration
 
 ```yaml
-type: custom:advanced-camera-card
+type: custom:camera-card-ha
 cameras:
   - camera_entity: camera.office
 ```
@@ -38,7 +38,7 @@ cameras:
 ### Video scrubbing configuration
 
 ```yaml
-type: custom:advanced-camera-card
+type: custom:camera-card-ha
 cameras:
   - camera_entity: camera.office
 profiles:
@@ -48,7 +48,7 @@ profiles:
 ### Multi-camera grid configuration
 
 ```yaml
-type: custom:advanced-camera-card
+type: custom:camera-card-ha
 cameras:
   - camera_entity: camera.office
   - camera_entity: camera.kitchen

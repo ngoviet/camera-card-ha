@@ -316,7 +316,7 @@ export class ZoomController {
   }
 
   /**
-   * Convert from Advanced Camera Card pan % values to Panzoom X/Y transformation
+   * Convert from Camera Card HA pan % values to Panzoom X/Y transformation
    * coordinates.
    * @param x The x translation value.
    * @param y The y translation value.

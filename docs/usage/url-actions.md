@@ -1,12 +1,12 @@
 # URL Actions
 
-It is possible to pass the Advanced Camera Card one or more
+It is possible to pass the Camera Card HA one or more
 [actions](../configuration/actions/README.md) from the URL (e.g. select a particular
 camera, open the live view in expanded mode, etc).
 
 ### When actions are executed
 
-The Advanced Camera Card will execute these actions in the following circumstances:
+The Camera Card HA will execute these actions in the following circumstances:
 
 - On initial card load.
 - On 'tab' change in a dashboard.
@@ -17,16 +17,16 @@ The Advanced Camera Card will execute these actions in the following circumstanc
 
 ## Instructions
 
-To send an action to _all_ Advanced Camera Cards on a dashboard:
+To send an action to _all_ Camera Card HA cards on a dashboard:
 
 ```
-[PATH_TO_YOUR_HA_DASHBOARD]?advanced-camera-card-action.[ACTION]=[VALUE]
+[PATH_TO_YOUR_HA_DASHBOARD]?camera-card-ha-action.[ACTION]=[VALUE]
 ```
 
-To send an action to a specific named Advanced Camera Card:
+To send an action to a specific named Camera Card HA:
 
 ```
-[PATH_TO_YOUR_HA_DASHBOARD]?advanced-camera-card-action.[CARD_ID].[ACTION]=[VALUE]
+[PATH_TO_YOUR_HA_DASHBOARD]?camera-card-ha-action.[CARD_ID].[ACTION]=[VALUE]
 ```
 
 > [!NOTE]
@@ -34,7 +34,7 @@ To send an action to a specific named Advanced Camera Card:
 
 | Parameter | Description                                                                                       |
 | --------- | ------------------------------------------------------------------------------------------------- |
-| `ACTION`  | One of the supported Advanced Camera Card custom actions. See below.                              |
+| `ACTION`  | One of the supported Camera Card HA custom actions. See below.                              |
 | `CARD_ID` | When specified only cards that have a [`card_id`](../configuration/README.md) parameter will act. |
 | `VALUE`   | An optional value to use with the `camera_select` and `live_substream_select` actions.            |
 
@@ -43,7 +43,7 @@ To send an action to a specific named Advanced Camera Card:
 > browsers may require it be escaped to `%3A`.
 
 > [!NOTE]
-> If a dashboard has multiple Advanced Camera Cards on it, even if they are on
+> If a dashboard has multiple Camera Card HA cards on it, even if they are on
 > different 'tabs' within that dashboard, they will all respond to the actions
 > unless the action is targeted with a `CARD_ID` as shown above.
 

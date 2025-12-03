@@ -222,7 +222,7 @@ export class VideoRTC extends HTMLElement {
    * https://developer.chrome.com/blog/autoplay/
    */
   play() {
-    // Advanced Camera Card controls playing at a higher level.
+    // Camera Card HA controls playing at a higher level.
   }
 
   /**
@@ -303,7 +303,7 @@ export class VideoRTC extends HTMLElement {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     this.video.addEventListener('error', (_ev) => {
-      // For Advanced Camera Card, we avoid log spam here from errors, and also don't
+      // For Camera Card HA, we avoid log spam here from errors, and also don't
       // attempt to close the websocket unless the connection is open (otherwise
       // on reconnect() an exception will be thrown here that we're attempting
       // to close a connection that's not open)

@@ -142,7 +142,7 @@ export class QueryStringManager {
           break;
         default:
           console.warn(
-            `Advanced Camera Card received unknown card action in query string: ${actionName}`,
+            `Camera Card HA received unknown card action in query string: ${actionName}`,
           );
       }
       if (action) {

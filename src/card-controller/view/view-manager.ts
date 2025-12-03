@@ -298,7 +298,7 @@ export class ViewManager implements ViewManagerInterface {
 
     log(
       this._api.getConfigManager().getCardWideConfig(),
-      `Advanced Camera Card view change: `,
+      `Camera Card HA view change: `,
       view,
     );
 

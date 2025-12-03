@@ -11,4 +11,4 @@ https://github.com/custom-cards/custom-card-helpers and are under CC-LICENSE.
 - `fire-hass-event.ts`
 - `haptic.ts`
 
-Other files remain under the Advanced Camera Card license.
+Other files remain under the Camera Card HA license.

@@ -134,7 +134,7 @@ export class AdvancedCameraCardLiveWebRTCCard extends LitElement implements Medi
         // See: https://github.com/dermotduffy/camera-card-ha/issues/1614
         intersection: 0,
 
-        // Advanced Camera Card always starts muted (unlike webrtc-card).
+        // Camera Card HA always starts muted (unlike webrtc-card).
         // See: https://github.com/dermotduffy/camera-card-ha/issues/1654
         muted: true,
 

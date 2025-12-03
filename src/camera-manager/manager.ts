@@ -273,7 +273,7 @@ export class CameraManager {
 
     log(
       this._api.getConfigManager().getCardWideConfig(),
-      'Advanced Camera Card CameraManager initialized (Cameras: ',
+      'Camera Card HA CameraManager initialized (Cameras: ',
       this._store.getCameras(),
       `, Duration: ${
         (new Date().getTime() - initializationStartTime.getTime()) / 1000
@@ -550,7 +550,7 @@ export class CameraManager {
 
     log(
       this._api.getConfigManager().getCardWideConfig(),
-      'Advanced Camera Card CameraManager favorite request (',
+      'Camera Card HA CameraManager favorite request (',
       `Duration: ${(new Date().getTime() - queryStartTime.getTime()) / 1000}s,`,
       'Media:',
       media.getID(),
@@ -686,7 +686,7 @@ export class CameraManager {
 
     log(
       this._api.getConfigManager().getCardWideConfig(),
-      'Advanced Camera Card CameraManager request [Input queries:',
+      'Camera Card HA CameraManager request [Input queries:',
       _queries.length,
       ', Cached output queries:',
       cachedOutputQueries,

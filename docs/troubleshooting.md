@@ -2,7 +2,7 @@
 
 ## Highlighted Issues
 
-### Duplicate versions / Duplicate element registrations / `Custom element not found: advanced-camera-card`
+### Duplicate versions / Duplicate element registrations / `Custom element not found: camera-card-ha`
 
 If your card appears to not load anymore (but was working previously), you're
 seeing the version of the card changing between reloads, or seeing log entries
@@ -11,13 +11,13 @@ like:
 `Failed to execute 'define' on 'CustomElementRegistry': the name "focus-trap" has already been used with this registry window`
 
 Verify that your dashboard resources contain only a single instance of the card
-(for HACS users, you should see only `/hacsfiles/advanced-camera-card/`. If you
-_also_ see `/hacsfiles/frigate-card/`, remove it, clear your caches and reload).
+(for HACS users, you should see only `/hacsfiles/camera-card-ha/`. If you
+_also_ see `/hacsfiles/frigate-card/` or `/hacsfiles/advanced-camera-card/`, remove it, clear your caches and reload).
 
 Steps:
 
-1. Edit your dashboard -> (Three dots menu) -> `Manage Resources`. Remove any line item that refers to `frigate-hass-card`. You should only have a single row entry for `advanced-camera-card`.
-1. [Optionally] You can delete the frigate-hass-card directory on your filesystem if present, e.g. `$HA_PATH/www/community/frigate-hass-card`, as long as it has an `advanced-camera-card` directory there too.
+1. Edit your dashboard -> (Three dots menu) -> `Manage Resources`. Remove any line item that refers to `frigate-hass-card` or `advanced-camera-card`. You should only have a single row entry for `camera-card-ha`.
+1. [Optionally] You can delete the frigate-hass-card or advanced-camera-card directory on your filesystem if present, e.g. `$HA_PATH/www/community/frigate-hass-card` or `$HA_PATH/www/community/advanced-camera-card`, as long as it has a `camera-card-ha` directory there too.
 1. Clear all your caches.
 
 ### Stream does not load

@@ -53,7 +53,7 @@ export function createMediaLoadedInfo(
 }
 
 /**
- * Dispatch an Advanced Camera Card media loaded event.
+ * Dispatch a Camera Card HA media loaded event.
  * @param element The element to send the event.
  * @param source An event or HTMLElement that should be used as a source.
  */

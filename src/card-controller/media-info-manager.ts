@@ -23,7 +23,7 @@ export class MediaLoadedInfoManager {
 
     log(
       this._api.getConfigManager().getCardWideConfig(),
-      `Advanced Camera Card media load: `,
+      `Camera Card HA media load: `,
       mediaLoadedInfo,
     );
 

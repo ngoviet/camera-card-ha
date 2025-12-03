@@ -2,14 +2,14 @@
 
 Templates may be used in a certain places to allow template values (if present)
 to be dynamically replaced. This allows a variety of Home Assistant data, and
-Advanced Camera Card data, to be accessible. Templates may be used in:
+Camera Card HA data, to be accessible. Templates may be used in:
 
 - [Actions / Automations](./actions/README.md)
 - [Folder Media Matchers](./folders.md?id=matchers)
 
 ## Stock Templates
 
-The Advanced Camera Card uses
+The Camera Card HA uses
 [ha-nunjucks](https://github.com/Nerwyn/ha-nunjucks) to process templates.
 Consult its documentation for the wide variety of different template values
 supported.
@@ -19,24 +19,24 @@ accesses Home Assistant state.
 
 ## Custom Templates
 
-Custom template values must be proceeded by `advanced_camera_card` (or `acc` for
-short).
+Custom template values must be proceeded by `camera_card_ha` (or `cch` for
+short). For backwards compatibility, `advanced_camera_card` (or `acc`) is also supported.
 
 | Template | Replaced with                                     |
 | -------- | ------------------------------------------------- |
 | `camera` | The currently selected camera.                    |
 | `view`   | The current [view](./view.md?id=supported-views). |
 
-See [an example](../examples.md?id=accessing-advanced-camera-card-state) that
-accesses Advanced Camera Card state.
+See [an example](../examples.md?id=accessing-camera-card-ha-state) that
+accesses Camera Card HA state.
 
 ### Media Matching
 
 If templates are used for [Folder Media Matching](./folders.md?id=matchers) an
 additional `media` variable is available with these properties:
 
-Media template values must be proceeded by `advanced_camera_card.media` (or
-`acc.media` for short).
+Media template values must be proceeded by `camera_card_ha.media` (or
+`cch.media` for short). For backwards compatibility, `advanced_camera_card.media` (or `acc.media`) is also supported.
 
 | Template    | Replaced with                                                                     |
 | ----------- | --------------------------------------------------------------------------------- |
@@ -45,12 +45,12 @@ Media template values must be proceeded by `advanced_camera_card.media` (or
 
 ### Triggers
 
-If the action is called by an [Advanced Camera Card
+If the action is called by a [Camera Card HA
 Automation](./automations.md), additional data is available representing the
 current and prior state of whatever triggered the action.
 
-Trigger template values must be proceeded by `advanced_camera_card.trigger` (or
-`acc.trigger` for short).
+Trigger template values must be proceeded by `camera_card_ha.trigger` (or
+`cch.trigger` for short). For backwards compatibility, `advanced_camera_card.trigger` (or `acc.trigger`) is also supported.
 
 | Template       | Replaced with                                                                                    |
 | -------------- | ------------------------------------------------------------------------------------------------ |

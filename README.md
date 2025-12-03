@@ -27,8 +27,6 @@
 
 # Camera Card HA
 
-Formerly known as: `Frigate Card`
-
 A comprehensive camera card for Home Assistant - **Optimized for performance** with lazy loading, native JavaScript helpers, and Home Assistant-specific optimizations.
 
 ## Features

@@ -294,7 +294,7 @@ export class AdvancedCameraCardElements extends LitElement {
 
 /**
  * An element that can render others based on card state (e.g. only show
- * overlays in particular views). This is the Advanced Camera Card equivalent to
+ * overlays in particular views). This is the Camera Card HA equivalent to
  * the HA conditional card.
  */
 @customElement('camera-card-ha-conditional')

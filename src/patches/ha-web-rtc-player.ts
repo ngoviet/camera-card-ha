@@ -71,7 +71,7 @@ customElements.whenDefined('ha-web-rtc-player').then(() => {
         return;
       }
 
-      // Advanced Camera Card note: The HA frontend doesn't add audio tracks if
+      // Camera Card HA note: The HA frontend doesn't add audio tracks if
       // the player is muted. It does not currently respond to unmuting to
       // re-add the audio track, or perhaps assumes that situation would not
       // arise. As such, this code is kept commented out. See:
